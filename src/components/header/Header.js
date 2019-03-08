@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './Header.scss';
 
 class Header extends Component {
@@ -7,8 +8,15 @@ class Header extends Component {
 			<header>
 				<nav className="app__header">
 				<ul className="app__header-sections">
-				{this.props.sections.map((section, index) => 
-					<li className="app__header-section" key={`header-section-${index}`}>{section}<span className="app__header-section-pointer"></span></li>
+				{this.props.sections.names.map((section, index) => 
+					<Router key={`header-section-${index}`}>
+					<li className="app__header-section" onClick={() => this.props.changeSection(index)}>
+						<Link to={this.props.sections.names[index] === 'Home' ? '/' : this.props.sections.names[index].toLowerCase()}>
+						{section}
+						</Link>
+						<span className="app__header-section-pointer"></span>
+					</li>
+					</Router>
 					)}
 				</ul>
 				</nav>

@@ -8,16 +8,25 @@ import './App.scss';
 
 class App extends Component {
 	state = {
-		sections: ['Home', 'Bio', 'Projects', 'Contact'],
+		sections: {
+			names: ['Home', 'Bio', 'Projects', 'Contact'],
+			colors: []
+		},
 		sectionIndex: 0
 	};
+	changeSection = index => {
+		this.setState({
+			sectionIndex: index
+		});
+	};
 	render() {
-		let currentSection = this.state.sections[this.state.sectionIndex];
+		let currentSection = this.state.sections.names[this.state.sectionIndex];
 		return (
 			<div>
 				<Header
 				sections={this.state.sections}
 				currentSection={currentSection}
+				changeSection={this.changeSection}
 				/>
 				<InfoSection
 				textContent="I don't actually live here. This is just a landing page for my online portfolio." 
