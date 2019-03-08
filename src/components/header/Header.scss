@@ -1,0 +1,99 @@
+@import "../../_variables.scss";
+
+.app {
+	&__header-sections {
+		display: flex;
+		justify-content: center;
+		background-color: $app-dark-blue;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__header-section {
+		list-style: none;
+		width: 160px;
+		font-family: 'Ubuntu Mono', 'sans-serif';
+		font-size: 1.5em;
+		color: $app-white;
+		background-color: $app-black;
+		line-height: 2;
+		padding: 0;
+		height: 48px;
+		background-image: url('../../images/header-sections-center.png');
+		cursor: pointer;
+		position: relative;
+		transition: all .25s ease-in;
+
+		&:hover {
+			color: darken($app-black, 100%);
+			background-color: lighten($app-black, 100%);
+		}
+
+		&:after,
+		&:before {
+			content: '';
+			display: block;
+			width: 32px;
+			height: 48px;
+			position: absolute;
+		}
+
+		&:after {
+			left: 0;
+			top: 0;
+			background-image: url('../../images/header-sections-left.png');
+		}
+
+		&:before {
+			background-image: url('../../images/header-sections-right.png');
+			right: 0;
+			top: 0;
+		}
+	}
+
+	&__header-section-pointer {
+		width: 92px;
+		background-color: $app-dark-blue;
+		display: block;
+		height: 8px;
+		margin: 0 auto;
+		top: -2px;
+		position: relative;
+		border: 2px solid $app-white;
+		z-index: 2;
+	}
+
+	&__header-section,
+	&__header-banner {
+		text-transform: uppercase;
+	}
+
+	&__header-banner {
+		height: 280px;
+		background-color: $app-black;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__header-banner-title {
+		font-family: 'Press Start 2P', 'sans-serif';
+		color: $app-white;
+		margin: 0;
+		font-size: 3em;
+		letter-spacing: .125em;
+		text-shadow: 0 4px $app-light-blue;
+	}
+
+	@keyframes header-sections-blink {
+		from {
+			background-color: $app-black
+		}
+
+		to {
+			color: darken($app-black, 100%);
+			background-color: lighten($app-black, 100%);
+		}
+	}
+}
