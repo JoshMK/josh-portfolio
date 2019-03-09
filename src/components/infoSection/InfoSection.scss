@@ -2,17 +2,18 @@
 
 .app {
 	&__info-section {
-		margin: 0 auto;
+		margin: 32px;
 		padding: 1em;
-		border: 8px solid $app-section-color;
-		border-bottom-color: black;
-		background-image: linear-gradient(to bottom, #656f98, #586bb3, #4767cd, #3061e7, #0059ff);
+		border: 16px ridge $app-section-border-color;
+		background-color: $app-section-color;
+
 	}
 
 	&__info-text {
-		font-size: 1.25em;
+		font-size: 1.5em;
 		color: $app-white;
 		text-shadow: 2px 2px $app-black;
+		padding: 0 8px;
 		font-family: 'Ubuntu Mono', 'sans-serif';
 	}
 

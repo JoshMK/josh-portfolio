@@ -1,5 +1,6 @@
 //React components
 import React, { Component } from 'react';
+import { Route } from "react-router-dom";
 //Custom components
 import Header from './components/header/Header';
 import InfoSection from './components/infoSection/InfoSection';
@@ -28,8 +29,10 @@ class App extends Component {
 				currentSection={currentSection}
 				changeSection={this.changeSection}
 				/>
-				<InfoSection
-				textContent="I don't actually live here. This is just a landing page for my online portfolio." 
+				<Route 
+				exact 
+				path="/"
+				render={props => <InfoSection {...props} textContent={"I don't actually live here. This is just a landing page for my online portfolio."} />} 
 				/>
 			</div>
 		);
