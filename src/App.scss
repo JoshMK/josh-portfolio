@@ -1,4 +1,12 @@
+@import "./_variables.scss";
+
 //global styles
+body,
+html {
+	height: 100%;
+	background-color: $app-background-color;
+}
+
 //google fonts
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Ubuntu+Mono');
 //bulma imports

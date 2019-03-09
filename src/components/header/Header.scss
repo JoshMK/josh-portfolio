@@ -101,45 +101,32 @@
 		display: inline-block;
 
 		&--anim-a {
-			animation: lettermove-a 1s linear 1s infinite alternate;
+			animation: lettermove-b .4s steps(4, end) infinite alternate;
 		}
 
 		&--anim-b {
-			animation: lettermove-b 1s linear 1s infinite alternate;
-		}
-
-		&--anim-c {
-			animation: lettermove-c 1s linear 1s infinite alternate;
+			animation: lettermove-b .5s steps(5, end) infinite alternate;
 		}
 	}
 
 	@keyframes lettermove-a {
 		from {
-			transform: translateY(0px) rotate(-4deg);
+			transform: translateY(0px) rotate(0deg);
 		}
 
 		to {
-			transform: translateY(4px) rotate(4deg);
+			transform: translateY(4px) rotate(0deg);
 		}
 	}
 
 	@keyframes lettermove-b {
 		from {
-			transform: translateY(0px) rotate(-6deg);
+			transform: translateY(0px) rotate(0deg);
 		}
 
 		to {
-			transform: translateY(2px) rotate(6deg);
+			transform: translateY(4px) rotate(0deg);
 		}
 	}
 
-	@keyframes lettermove-c {
-		from {
-			transform: translateY(0px) rotate(-2deg);
-		}
-
-		to {
-			transform: translateY(6px) rotate(2deg);
-		}
-	}
 }

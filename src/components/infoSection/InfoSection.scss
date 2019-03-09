@@ -1,0 +1,19 @@
+@import "../../_variables.scss";
+
+.app {
+	&__info-section {
+		margin: 0 auto;
+		padding: 1em;
+		border: 8px solid $app-section-color;
+		border-bottom-color: black;
+		background-image: linear-gradient(to bottom, #656f98, #586bb3, #4767cd, #3061e7, #0059ff);
+	}
+
+	&__info-text {
+		font-size: 1.25em;
+		color: $app-white;
+		text-shadow: 2px 2px $app-black;
+		font-family: 'Ubuntu Mono', 'sans-serif';
+	}
+
+}

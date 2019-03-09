@@ -6,10 +6,9 @@ class Header extends Component {
 
 	splitSectionTitle = section => {
 		let newSection = '';
-		let animTypes = ['anim-a', 'anim-b', 'anim-c'];
 		let length = section.length;
 		for (let i = 0; i < length; i++) {
-			let animType = animTypes[Math.floor(Math.random() * animTypes.length)];
+			let animType = i % 2 === 0 ? 'anim-a' : 'anim-b';
 			newSection += `<span class="app__header-letter app__header-letter--${animType}">${section[i]}</span>`;
 		}
 		return { __html: `${newSection}` };

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './InfoSection.scss';
 
 class InfoSection extends Component {
 	render() {
 		return (
-			<div>
-			<p>{this.props.textContent}</p>
+			<div className="app__info-section">
+			<p className="app__info-text">{this.props.textContent}</p>
 			</div>
 		);
 	}
