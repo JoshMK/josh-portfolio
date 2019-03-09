@@ -88,7 +88,7 @@
 		align-items: center;
 	}
 
-	&__header-banner-title {
+	&__header-title {
 		font-family: 'Press Start 2P', 'sans-serif';
 		color: $app-white;
 		margin: 0;
@@ -97,14 +97,49 @@
 		text-shadow: 0 4px $app-light-blue;
 	}
 
-	@keyframes header-sections-blink {
+	&__header-letter {
+		display: inline-block;
+
+		&--anim-a {
+			animation: lettermove-a 1s linear 1s infinite alternate;
+		}
+
+		&--anim-b {
+			animation: lettermove-b 1s linear 1s infinite alternate;
+		}
+
+		&--anim-c {
+			animation: lettermove-c 1s linear 1s infinite alternate;
+		}
+	}
+
+	@keyframes lettermove-a {
 		from {
-			background-color: $app-black
+			transform: translateY(0px) rotate(-4deg);
 		}
 
 		to {
-			color: darken($app-black, 100%);
-			background-color: lighten($app-black, 100%);
+			transform: translateY(4px) rotate(4deg);
+		}
+	}
+
+	@keyframes lettermove-b {
+		from {
+			transform: translateY(0px) rotate(-6deg);
+		}
+
+		to {
+			transform: translateY(2px) rotate(6deg);
+		}
+	}
+
+	@keyframes lettermove-c {
+		from {
+			transform: translateY(0px) rotate(-2deg);
+		}
+
+		to {
+			transform: translateY(6px) rotate(2deg);
 		}
 	}
 }

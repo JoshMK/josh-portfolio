@@ -3,7 +3,19 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './Header.scss';
 
 class Header extends Component {
+
+	splitSectionTitle = section => {
+		let newSection = '';
+		let animTypes = ['anim-a', 'anim-b', 'anim-c'];
+		let length = section.length;
+		for (let i = 0; i < length; i++) {
+			let animType = animTypes[Math.floor(Math.random() * animTypes.length)];
+			newSection += `<span class="app__header-letter app__header-letter--${animType}">${section[i]}</span>`;
+		}
+		return { __html: `${newSection}` };
+	};
 	render() {
+
 		return (
 			<header>
 				<nav className="app__header">
@@ -21,7 +33,7 @@ class Header extends Component {
 				</ul>
 				</nav>
 				<div className="app__header-banner">
-				<h1 className="app__header-banner-title">{this.props.currentSection}</h1>
+				<h1 className="app__header-title" dangerouslySetInnerHTML={this.splitSectionTitle(this.props.currentSection)}/>
 				</div>
 			</header>
 		);
