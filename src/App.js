@@ -23,7 +23,7 @@ class App extends Component {
 	render() {
 		let currentSection = this.state.sections.names[this.state.sectionIndex];
 		return (
-			<div>
+			<React.Fragment>
 				<Header
 				sections={this.state.sections}
 				currentSection={currentSection}
@@ -32,9 +32,9 @@ class App extends Component {
 				<Route 
 				exact 
 				path="/"
-				render={props => <InfoSection {...props} textContent={"I don't actually live here. This is just a landing page for my online portfolio."} />} 
+				render={props => <InfoSection {...props} textContent={"<p>I don't actually live here. This is just a landing page for my online portfolio.</p><p>Check out the other sections to learn more about me and my work.</p>"} />} 
 				/>
-			</div>
+    		</React.Fragment>
 		);
 	}
 }

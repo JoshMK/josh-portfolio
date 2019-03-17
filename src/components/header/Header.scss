@@ -1,13 +1,30 @@
 @import "../../_variables.scss";
+//bulma imports
+@import "~bulma/sass/utilities/mixins";
 
 .app {
-	&__header-sections {
-		display: flex;
-		justify-content: center;
+	&__header {
 		background-color: $app-dark-blue;
+	}
+
+	&__header-sections {
+		width: 160px;
+		height: 48px;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		text-align: center;
-		margin: 0;
+		margin: 0 auto;
 		padding: 0;
+		transition: width .2s;
+
+		@include from($tablet) {
+			width: 100%;
+			margin: 0;
+			flex-direction: row;
+			height: auto;
+		}
 	}
 
 	&__header-section {
@@ -24,6 +41,11 @@
 		cursor: pointer;
 		position: relative;
 		z-index: 2;
+		top: 72px;
+
+		@include from($tablet) {
+			top: 0;
+		}
 
 		a {
 			color: $app-white;
@@ -81,20 +103,29 @@
 	}
 
 	&__header-banner {
-		height: 280px;
+		height: 140px;
 		background-color: $app-black;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		transition: height .1s;
+
+		@include from($tablet) {
+			height: 280px;
+		}
 	}
 
 	&__header-title {
 		font-family: 'Press Start 2P', 'sans-serif';
 		color: $app-white;
 		margin: 0;
-		font-size: 3em;
+		font-size: 2em;
 		letter-spacing: .125em;
 		text-shadow: 0 4px $app-light-blue;
+
+		@include from ($tablet) {
+			font-size: 3em;
+		}
 	}
 
 	&__header-letter {

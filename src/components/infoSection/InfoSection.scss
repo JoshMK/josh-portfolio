@@ -1,18 +1,19 @@
 @import "../../_variables.scss";
+//bulma imports
+@import "~bulma/sass/utilities/mixins";
 
 .app {
 	&__info-section {
-		margin: 32px;
+		margin: 64px 32px 32px 32px;
 		padding: 1em;
 		border: 16px ridge $app-section-border-color;
 		background-color: $app-section-color;
-
 	}
 
 	&__info-text {
 		font-size: 1.5em;
 		color: $app-white;
-		text-shadow: 2px 2px $app-black;
+		text-shadow: 1px -1px 0 $app-black, 1px -1px 0 $app-black, -1px 1px 0 $app-black, 1px 1px 0 $app-black;
 		padding: 0 8px;
 		font-family: 'Ubuntu Mono', 'sans-serif';
 	}
