@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './InfoSection.scss';
 
 class InfoSection extends Component {
+	setHTML = () => {
+		return { __html: this.props.textContent };
+	};
 	render() {
 		return (
-			<div className="app__info-section">
-			<p className="app__info-text">{this.props.textContent}</p>
-			</div>
+			<div className="app__info-section" dangerouslySetInnerHTML={this.setHTML()} />
 		);
 	}
 }

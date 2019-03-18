@@ -103,7 +103,7 @@
 	}
 
 	&__header-banner {
-		height: 140px;
+		height: 105px;
 		background-color: $app-light-blue;
 		display: flex;
 		justify-content: center;
@@ -123,9 +123,18 @@
 		font-size: 2em;
 		letter-spacing: .125em;
 		text-shadow:
-			1px -1px 0 $app-black, 1px 1px 0 $app-black, -1px 1px 0 $app-black, -1px -1px 0 $app-black,
-			2px -2px 0 $app-black, 2px 2px 0 $app-black, -2px 2px 0 $app-black, -2px -2px 0 $app-black,
-			3px -3px 0 $app-black, 3px 3px 0 $app-black, -3px 3px 0 $app-black, -3px -3px 0 $app-black;
+			1px -1px 0 $app-black,
+			1px 1px 0 $app-black,
+			-1px 1px 0 $app-black,
+			-1px -1px 0 $app-black,
+			2px -2px 0 $app-black,
+			2px 2px 0 $app-black,
+			-2px 2px 0 $app-black,
+			-2px -2px 0 $app-black,
+			3px -3px 0 $app-black,
+			3px 3px 0 $app-black,
+			-3px 3px 0 $app-black,
+			-3px -3px 0 $app-black;
 
 		@include from ($tablet) {
 			font-size: 3em;
@@ -140,7 +149,7 @@
 		}
 
 		&--anim-b {
-			animation: lettermove-b .5s steps(5, end) infinite alternate;
+			animation: lettermove-b .45s steps(5, end) infinite alternate;
 		}
 	}
 
