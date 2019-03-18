@@ -5,7 +5,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 //Custom components
 import Header from './components/header/Header';
 import InfoSection from './components/infoSection/InfoSection';
-import ProjectGrid from './components/projectGrid/projectGrid';
+import ProjectGrid from './components/projectGrid/ProjectGrid';
 //audio
 import laughTrack from './audio/RDLG-2.mp3';
 //global styles
@@ -22,7 +22,8 @@ class App extends Component {
 		sections: {
 			names: ['Home', 'Bio', 'Projects', 'Contact']
 		},
-		sectionIndex: 0
+		sectionIndex: 0,
+		promptIsAnimated: false
 	};
 	changeSection = index => {
 		this.setState({
@@ -32,6 +33,15 @@ class App extends Component {
 	playSound = sound => {
 		sound.play();
 	};
+	animatePrompt = setInterval(() => {
+		this.setState({
+			promptIsAnimated: !this.state.promptIsAnimated
+		});
+	  }, 300);
+
+	componentWillUnmount() {
+		clearInterval(this.animatePrompt);
+	}
 
 	render() {
 		let laughSound = new Audio(laughTrack);
@@ -85,9 +95,7 @@ class App extends Component {
 						/>
 						<ProjectGrid
 						{...props} 
-						textContent={`
-						<p class='app__info-text'>Any resemblance between this section and a classic videogame is completely coincidental.</p>
-						`} 
+						promptIsAnimated={this.state.promptIsAnimated}
 						/>
 						</React.Fragment>
 					}/>  

@@ -4,13 +4,13 @@
 
 .app {
 	&__info-section {
-		margin: 72px 8px 8px 8px;
+		margin: 72px 8px 0 8px;
 		padding: 1em;
 		border: 8px ridge $app-section-border-color;
 		background-color: $app-section-color;
 
 		@include from ($tablet) {
-			margin: 96px 32px 32px 32px
+			margin: 96px 32px 0 32px
 		}
 	}
 

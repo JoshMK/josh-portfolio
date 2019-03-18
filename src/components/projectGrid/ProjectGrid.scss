@@ -1,0 +1,32 @@
+@import "../../_variables.scss";
+//bulma imports
+@import "~bulma/sass/utilities/mixins";
+
+.app {
+        &__project-grid {
+            position: relative;
+        }
+        &__grid-prompt {
+            color: $app-white;
+            font-family: 'Press Start 2p', 'sans-serif';
+            font-size: 1em;
+            text-transform: uppercase;
+            line-height: 1.1;
+            text-align: center;
+            &--flash {
+                color: #75bff1;
+            }
+            @include from ($tablet) {
+                text-align: left;
+                width: 96px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        &__grid-prompt-alt {
+            display: block;
+            margin-top: 16px;
+        }
+}
