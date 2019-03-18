@@ -4,16 +4,16 @@
 
 .app {
 	&__info-section {
-		margin: 64px 32px 32px 32px;
+		margin: 96px 32px 32px 32px;
 		padding: 1em;
-		border: 16px ridge $app-section-border-color;
+		border: 8px ridge $app-section-border-color;
 		background-color: $app-section-color;
 	}
 
 	&__info-text {
 		font-size: 1.5em;
 		color: $app-white;
-		text-shadow: 1px -1px 0 $app-black, 1px -1px 0 $app-black, -1px 1px 0 $app-black, 1px 1px 0 $app-black;
+		//text-shadow: 0 2px $app-light-blue;
 		padding: 0 8px;
 		font-family: 'Ubuntu Mono', 'sans-serif';
 	}

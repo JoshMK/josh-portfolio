@@ -89,7 +89,7 @@
 		width: 92px;
 		background-color: $app-dark-blue;
 		display: block;
-		height: 8px;
+		height: 1px;
 		margin: 0 auto;
 		top: -4px;
 		position: relative;
@@ -104,14 +104,15 @@
 
 	&__header-banner {
 		height: 140px;
-		background-color: $app-black;
+		background-color: $app-light-blue;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		transition: height .1s;
+		box-shadow: 0 -8px 8px 2px #4b00ff;
 
 		@include from($tablet) {
-			height: 280px;
+			height: 210px;
 		}
 	}
 
@@ -121,7 +122,10 @@
 		margin: 0;
 		font-size: 2em;
 		letter-spacing: .125em;
-		text-shadow: 0 4px $app-light-blue;
+		text-shadow:
+			1px -1px 0 $app-black, 1px 1px 0 $app-black, -1px 1px 0 $app-black, -1px -1px 0 $app-black,
+			2px -2px 0 $app-black, 2px 2px 0 $app-black, -2px 2px 0 $app-black, -2px -2px 0 $app-black,
+			3px -3px 0 $app-black, 3px 3px 0 $app-black, -3px 3px 0 $app-black, -3px -3px 0 $app-black;
 
 		@include from ($tablet) {
 			font-size: 3em;
