@@ -1,36 +1,42 @@
 @import "./_variables.scss";
 //bulma imports
 @import "~bulma/sass/utilities/mixins";
-//@import "~bulma/sass/utilities/initial-variables";
-//@import "~bulma/sass/utilities/derived-variables";
-//@import "~bulma/sass/utilities/mixins";
-//@import "~bulma/sass/grid/_all";
+@import "~bulma/sass/grid/_all";
 //global styles
 
 body,
-html,
-#root {
+html {
 	height: 100%;
 }
 
 #root {
-	background-image: url('./images/background-bottom.png');
+	//background-image: url('./images/background-bottom.png');
 	background-position: center bottom;
 	background-repeat-y: no-repeat;
 }
 
 body,
 html {
-	background-color: $app-background-color;
+	background-color: $app-light-blue;
 }
 
 body {
 	background-image: url('./images/background-top.png');
-	background-position-y: 152px;
+	background-position-y: 153px;
 	background-repeat-y: no-repeat;
 
 	@include from ($tablet) {
 		background-position-y: 258px;
+	}
+}
+
+//bulma changes
+.columns {
+	margin-right: 0;
+	margin-left: 0;
+	&.is-alternate {
+		max-width: 800px;
+		margin: 0 auto;
 	}
 }
 

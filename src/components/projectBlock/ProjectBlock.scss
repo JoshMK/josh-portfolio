@@ -1,0 +1,17 @@
+@import "../../_variables.scss";
+//bulma imports
+@import "~bulma/sass/utilities/mixins";
+
+.app {
+        &__project-block {
+                margin: 0 auto;
+                display: block;
+        }
+        &__project-name {
+                margin-top: 8px;
+                color: $app-white;
+                text-transform: uppercase;
+                text-align: center;
+                font-family: 'Press Start 2P', 'sans-serif';
+        }
+}
