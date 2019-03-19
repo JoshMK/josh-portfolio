@@ -5,8 +5,14 @@
 .app {
         &__project-grid {
             position: relative;
+            margin-top: 8px;
+            padding-bottom: 16px;
+            @include from ($tablet) {
+                padding-bottom: 0;
+            }
         }
         &__grid-prompt {
+            margin: 32px 32px 24px 32px;
             color: $app-white;
             font-family: 'Press Start 2p', 'sans-serif';
             font-size: 1em;
@@ -14,9 +20,10 @@
             line-height: 1.1;
             text-align: center;
             &--flash {
-                color: #75bff1;
+                color: $app-prompt-alt;
             }
             @include from ($tablet) {
+                margin: 0;
                 text-align: left;
                 width: 96px;
                 position: absolute;

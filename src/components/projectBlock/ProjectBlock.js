@@ -6,7 +6,7 @@ class projectBlock extends Component {
 	render() {
 		return (
 			<figure>
-				<img className='app__project-block' src={gridImg} alt=''/>
+				<img className='app__project-block' tabIndex='0' src={gridImg} alt=''/>
 				<figcaption className="app__project-name">{this.props.captionText}</figcaption>
 			</figure>
 		);

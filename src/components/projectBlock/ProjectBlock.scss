@@ -6,9 +6,14 @@
         &__project-block {
                 margin: 0 auto;
                 display: block;
+                border: 4px solid transparent;
+                cursor: pointer;
+                &:hover {
+                        opacity: .7;
+                }
         }
         &__project-name {
-                margin-top: 8px;
+                margin: 16px 0;
                 color: $app-white;
                 text-transform: uppercase;
                 text-align: center;
