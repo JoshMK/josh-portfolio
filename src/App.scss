@@ -9,12 +9,6 @@ html {
 	height: 100%;
 }
 
-#root {
-	//background-image: url('./images/background-bottom.png');
-	background-position: center bottom;
-	background-repeat-y: no-repeat;
-}
-
 body,
 html {
 	background-color: $app-light-blue;
@@ -23,7 +17,7 @@ html {
 body {
 	background-image: url('./images/background-top.png');
 	background-position-y: 153px;
-	background-repeat-y: no-repeat;
+	background-repeat: repeat-x;
 
 	@include from ($tablet) {
 		background-position-y: 258px;
