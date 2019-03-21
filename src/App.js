@@ -17,6 +17,7 @@ class App extends Component {
             names: ['Home', 'Bio', 'Projects', 'Contact']
         },
         sectionIndex: 0,
+        isMobile: true,
         promptIsAnimated: false
     };
     changeSection = index => {
@@ -27,7 +28,7 @@ class App extends Component {
     };
     animatePrompt = setInterval(() => {
         this.setState({
-            promptIsAnimated: !this.state.promptIsAnimated
+            projectPromptIsAnimated: !this.state.projectPromptIsAnimated
         });
     }, 300);
 
@@ -65,9 +66,10 @@ class App extends Component {
                     <Header
                         sections={this.state.sections}
                         currentSection={currentSection}
-                        changeSection={this.changeSection}/>
-                    <PoseGroup>
-                        <RouteContainer key={location.pathname}>
+                        changeSection={this.changeSection}
+                        isMobile={this.state.isMobile}/>
+                    {/*<PoseGroup>*/}
+                        {/*<RouteContainer key={location.pathname}>*/}
                             <Switch location={location}>
                                 <Route
                                     exact
@@ -91,11 +93,11 @@ class App extends Component {
                                     <InfoSection
                                         {...props}
                                         textContent={` <p class='app__info-text'>Any resemblance between this section and a classic videogame is completely coincidental.</p> `}/>
-                                    <ProjectGrid {...props} promptIsAnimated={this.state.promptIsAnimated}/>
+                                    <ProjectGrid {...props} projectPromptIsAnimated={this.state.projectPromptIsAnimated}/>
                                 </React.Fragment>}/>
                             </Switch>
-                        </RouteContainer>
-                    </PoseGroup>
+                        {/*</RouteContainer>*/}
+                    {/*</PoseGroup>*/}
                 </React.Fragment>
             )}/>
         );

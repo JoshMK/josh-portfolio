@@ -7,7 +7,7 @@ class projectGrid extends Component {
         return (
             <div className='app__project-grid'>
                 <h2
-                    className={`app__grid-prompt${this.props.promptIsAnimated
+                    className={`app__grid-prompt${this.props.projectPromptIsAnimated
                     ? ' app__grid-prompt--flash'
                     : ''}`}>Select Stage
                     <br/>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavLink} from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
 import './Header.scss';
 
 class Header extends Component {
@@ -20,6 +20,30 @@ class Header extends Component {
         return (
             <header>
                 <nav className="app__header">
+                    <div className="app__header-button-container">
+                        {/*<img className="app__header-sections-button" src={homeLogo}/>
+                        <img className="app__header-sections-button" src={bioLogo}/>
+                        <img className="app__header-sections-button" src={projectsLogo}/>
+        <img className="app__header-sections-button" src={contactLogo}/>*/}
+                        {this
+                            .props
+                            .sections
+                            .names
+                            .map((section, index) => <Link
+                                key={`button-section-${index}`}
+                                onClick={() => this.props.changeSection(index)}
+                                to={this.props.sections.names[index] === 'Home'
+                                ? '/'
+                                : this
+                                    .props
+                                    .sections
+                                    .names[index]
+                                    .toLowerCase()}>
+                                <img
+                                    className="app__header-sections-button"
+                                    src={require(`../../images/header-${this.props.sections.names[index].toLowerCase()}-button.png`)}/>
+                            </Link>)}
+                    </div>
                     <ul className="app__header-sections">
                         {this
                             .props
