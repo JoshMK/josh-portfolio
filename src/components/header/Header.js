@@ -20,16 +20,14 @@ class Header extends Component {
         return (
             <header>
                 <nav className="app__header">
-                    <div className="app__header-button-container">
-                        {/*<img className="app__header-sections-button" src={homeLogo}/>
-                        <img className="app__header-sections-button" src={bioLogo}/>
-                        <img className="app__header-sections-button" src={projectsLogo}/>
-        <img className="app__header-sections-button" src={contactLogo}/>*/}
+                    {this.props.isMobile && (
+                    <nav className="app__header-button-container">
                         {this
                             .props
                             .sections
                             .names
                             .map((section, index) => <Link
+                                className="app__header-button-link"
                                 key={`button-section-${index}`}
                                 onClick={() => this.props.changeSection(index)}
                                 to={this.props.sections.names[index] === 'Home'
@@ -40,10 +38,12 @@ class Header extends Component {
                                     .names[index]
                                     .toLowerCase()}>
                                 <img
-                                    className="app__header-sections-button"
+                                    className="app__header-button-image"
+                                    alt={`${this.props.sections.names[index]} Button`}
                                     src={require(`../../images/header-${this.props.sections.names[index].toLowerCase()}-button.png`)}/>
                             </Link>)}
-                    </div>
+                    </nav>)}
+                    {!this.props.isMobile && (
                     <ul className="app__header-sections">
                         {this
                             .props
@@ -67,6 +67,7 @@ class Header extends Component {
                                 <span className="app__header-section-pointer"></span>
                             </li>)}
                     </ul>
+                    )}
                 </nav>
                 <div className="app__header-banner">
                     <h1

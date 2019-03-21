@@ -15,10 +15,10 @@ class projectGrid extends Component {
                 </h2>
                 <div className="columns is-centered is-alternate">
                     <div className="column">
-                        <ProjectBlock captionText='fishman'/>
+                        <ProjectBlock captionText='divineman'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock captionText='molarman'/>
+                        <ProjectBlock captionText='fishman'/>
                     </div>
                 </div>
                 <div className="columns is-centered">
@@ -34,7 +34,7 @@ class projectGrid extends Component {
                         <ProjectBlock captionText='newsman'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock captionText='divineman'/>
+                        <ProjectBlock captionText='molarman'/>
                     </div>
                 </div>
             </div>

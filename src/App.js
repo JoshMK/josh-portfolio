@@ -20,20 +20,33 @@ class App extends Component {
         isMobile: true,
         promptIsAnimated: false
     };
+    checkIsMobile = () => {
+        if (window.innerWidth > 768) {
+            this.setState({isMobile: false});
+        } else {
+            this.setState({isMobile: true});
+        }
+    };
     changeSection = index => {
         this.setState({sectionIndex: index});
     };
     playSound = sound => {
         sound.play();
     };
-    animatePrompt = setInterval(() => {
+    animateProjectPrompt = setInterval(() => {
         this.setState({
             projectPromptIsAnimated: !this.state.projectPromptIsAnimated
         });
     }, 300);
 
+    componentDidMount() {
+        window.addEventListener('resize', this.checkIsMobile);
+    }
+
     componentWillUnmount() {
-        clearInterval(this.animatePrompt);
+        //unmount all timed events
+        clearInterval(this.animateProjectPrompt);
+        window.removeEventListener('resize', this.checkIsMobile);
     }
 
     render() {
@@ -61,42 +74,52 @@ class App extends Component {
                 <React.Fragment>
                     <Helmet>
                         <title>{`Joshua Kirwin | ${this.state.sections.names[this.state.sectionIndex]}`}</title>
-                        <meta name="description" content="Joshua Kirwin's amazing online portfolio of mystical wonders"/>
+                        <meta
+                            name='description'
+                            content="Joshua Kirwin's amazing online portfolio of mystical wonders"/>
                     </Helmet>
                     <Header
                         sections={this.state.sections}
                         currentSection={currentSection}
                         changeSection={this.changeSection}
-                        isMobile={this.state.isMobile}/>
-                    {/*<PoseGroup>*/}
-                        {/*<RouteContainer key={location.pathname}>*/}
-                            <Switch location={location}>
-                                <Route
-                                    exact
-                                    path='/'
-                                    key='/'
-                                    render={props => <InfoSection
-                                    {...props}
-                                    textContent={`<p class='app__info-text'>I don't actually live here.</p> <p class='app__info-text'>This is just the landing page for my online portfolio. Check out the other sections to learn more about me and what I've worked on.</p>`}/>}/>
-                                <Route
-                                    exact
-                                    path='/bio'
-                                    key='/bio'
-                                    render={props => <InfoSection
-                                    {...props}
-                                    textContent={` <p class='app__info-text'>I'm a Mary Hardin-Baylor graduate in computer science. I specialize in frontend web development but have solid backend tech experience.</p> <p class='app__info-text'><span class='app__info-text--em'>My frontend tools:</span> HTML, CSS/SCSS, minimalist CSS Frameworks (like Bulma), modern JavaScript (with Babel, Webpack, and all the trimmings), React (with plans to pick up Vue.js on the horizon), and occasionally jQuery. I'm also keen on website accessibility (y'know, stuff like properly structured, semantic markup and 508 compliance.)</p> <p class='app__info-text'><span class='app__info-text--em'>My backend tools:</span> NodeJS (writing scripts/tasks), PHP and Twig. I'm also proficient with CMSs like WordPress and Craft.</p> <p class='app__info-text'><span class='app__info-text--em'>Misc. skills:</span> web hosting, DNS Management, optimization, and basic SEO. I'd be a jack-of-all-trades if my name wasn't 'Josh'.</p> `}/>}/>
-                                <Route
-                                    exact
-                                    path='/projects'
-                                    key='projects'
-                                    render={props => <React.Fragment>
-                                    <InfoSection
-                                        {...props}
-                                        textContent={` <p class='app__info-text'>Any resemblance between this section and a classic videogame is completely coincidental.</p> `}/>
-                                    <ProjectGrid {...props} projectPromptIsAnimated={this.state.projectPromptIsAnimated}/>
-                                </React.Fragment>}/>
-                            </Switch>
-                        {/*</RouteContainer>*/}
+                        isMobile={this.state.isMobile}/> {/*<PoseGroup>*/}
+                    {/*<RouteContainer key={location.pathname}>*/}
+                    <Switch location={location}>
+                        <Route
+                            exact
+                            path='/'
+                            key='/'
+                            render={props => <InfoSection
+                            {...props}
+                            textContent={`<p class='app__info-text'>I don't actually live here.</p> <p class='app__info-text'>This is just the landing page for my online portfolio. Check out the other sections to learn more about me and what I've worked on.</p>`}/>}/>
+                        <Route
+                            exact
+                            path='/bio'
+                            key='/bio'
+                            render={props => <InfoSection
+                            {...props}
+                            textContent={`<p class='app__info-text'>I'm a Mary Hardin-Baylor graduate in computer science. I specialize in frontend web development but have solid backend tech experience.</p> <p class='app__info-text'><span class='app__info-text--em'>My frontend tools:</span> HTML, CSS/SCSS, minimalist CSS Frameworks (like Bulma), modern JavaScript (with Babel, Webpack, and all the trimmings), React (with plans to pick up Vue.js on the horizon), and occasionally jQuery. I'm also keen on website accessibility (y'know, stuff like properly structured, semantic markup and 508 compliance.)</p> <p class='app__info-text'><span class='app__info-text--em'>My backend tools:</span> NodeJS (writing scripts/tasks), PHP and Twig. I'm also proficient with CMSs like WordPress and Craft.</p> <p class='app__info-text'><span class='app__info-text--em'>Misc. skills:</span> web hosting, DNS Management, optimization, and basic SEO. I'd be a jack-of-all-trades if my name wasn't 'Josh'.</p> `}/>}/>
+                        <Route
+                            exact
+                            path='/projects'
+                            key='projects'
+                            render={props => <React.Fragment>
+                            <InfoSection
+                                {...props}
+                                textContent={`<p class='app__info-text'>Any resemblance between this section and a classic videogame is completely coincidental.</p> `}/>
+                            <ProjectGrid
+                                {...props}
+                                projectPromptIsAnimated={this.state.projectPromptIsAnimated}/>
+                        </React.Fragment>}/>
+                        <Route
+                            exact
+                            path='/contact'
+                            key='/contact'
+                            render={props => <InfoSection
+                            {...props}
+                            textContent={`<p class='app__info-text'><span class='app__info-text--em'>E-mail:</span> joshuakirwin@gmail.com</p><p class='app__info-text'><span class='app__info-text--em'>LinkedIn:</span> https://www.linkedin.com/in/joshua-kirwin/</p><p class='app__info-text'><span class='app__info-text--em'>Carrier Pigeon:</span> TBD</p>`}/>}/>
+                    </Switch>
+                    {/*</RouteContainer>*/}
                     {/*</PoseGroup>*/}
                 </React.Fragment>
             )}/>
