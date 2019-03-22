@@ -1,6 +1,6 @@
 //React components
 import React, {Component} from 'react';
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, withRouter} from "react-router-dom";
 import posed, {PoseGroup} from 'react-pose';
 import {Helmet} from "react-helmet";
 //Custom components
@@ -30,6 +30,21 @@ class App extends Component {
     changeSection = index => {
         this.setState({sectionIndex: index});
     };
+    setInitialSection = name => {
+        if (name !== '/') {
+            const newName = name
+                .replace('/', '')
+                .charAt(0)
+                .toUpperCase() + name.slice(2);
+            this.setState({
+                sectionIndex: this
+                    .state
+                    .sections
+                    .names
+                    .indexOf(newName)
+            });
+        }
+    };
     playSound = sound => {
         sound.play();
     };
@@ -40,11 +55,14 @@ class App extends Component {
     }, 300);
 
     componentDidMount() {
+        const {location} = this.props;
         window.addEventListener('resize', this.checkIsMobile);
+        this.checkIsMobile();
+        this.setInitialSection(location.pathname);
     }
 
     componentWillUnmount() {
-        //unmount all timed events
+        //unmount all events
         clearInterval(this.animateProjectPrompt);
         window.removeEventListener('resize', this.checkIsMobile);
     }
@@ -82,7 +100,8 @@ class App extends Component {
                         sections={this.state.sections}
                         currentSection={currentSection}
                         changeSection={this.changeSection}
-                        isMobile={this.state.isMobile}/> {/*<PoseGroup>*/}
+                        isMobile={this.state.isMobile}
+                        addRemoveClass={this.addRemoveClass}/> {/*<PoseGroup>*/}
                     {/*<RouteContainer key={location.pathname}>*/}
                     <Switch location={location}>
                         <Route
@@ -117,7 +136,7 @@ class App extends Component {
                             key='/contact'
                             render={props => <InfoSection
                             {...props}
-                            textContent={`<p class='app__info-text'><span class='app__info-text--em'>E-mail:</span> joshuakirwin@gmail.com</p><p class='app__info-text'><span class='app__info-text--em'>LinkedIn:</span> https://www.linkedin.com/in/joshua-kirwin/</p><p class='app__info-text'><span class='app__info-text--em'>Carrier Pigeon:</span> TBD</p>`}/>}/>
+                            textContent={`<p class='app__info-text'> <span class='app__info-text--em'>E-mail:</span> <a class='app__info-icon icon-envelop' href='' class='icon-envelop'></a></p> <p class='app__info-text'><span class='app__info-text--em'>LinkedIn:</span> <a class='app__info-icon icon-linkedin' href='https://www.linkedin.com/in/joshua-kirwin/' target='_blank'></a></p> <p class='app__info-text'><span class='app__info-text--em'>Carrier Pigeon: </span> <a class='app__info-icon icon-bird' href=''></a></p>`}/>}/>
                     </Switch>
                     {/*</RouteContainer>*/}
                     {/*</PoseGroup>*/}
@@ -127,4 +146,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);

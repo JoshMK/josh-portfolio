@@ -30,4 +30,13 @@
 		}
 	}
 
+	&__info-icon {
+		text-decoration: none;
+		color: $app-white;
+		transition: color .2s;
+		&:hover {
+			color: $app-light-blue;
+		}
+	}
+
 }

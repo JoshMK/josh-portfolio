@@ -21,52 +21,56 @@ class Header extends Component {
             <header>
                 <nav className="app__header">
                     {this.props.isMobile && (
-                    <nav className="app__header-button-container">
-                        {this
-                            .props
-                            .sections
-                            .names
-                            .map((section, index) => <Link
-                                className="app__header-button-link"
-                                key={`button-section-${index}`}
-                                onClick={() => this.props.changeSection(index)}
-                                to={this.props.sections.names[index] === 'Home'
-                                ? '/'
-                                : this
-                                    .props
-                                    .sections
-                                    .names[index]
-                                    .toLowerCase()}>
-                                <img
-                                    className="app__header-button-image"
-                                    alt={`${this.props.sections.names[index]} Button`}
-                                    src={require(`../../images/header-${this.props.sections.names[index].toLowerCase()}-button.png`)}/>
-                            </Link>)}
-                    </nav>)}
-                    {!this.props.isMobile && (
-                    <ul className="app__header-sections">
-                        {this
-                            .props
-                            .sections
-                            .names
-                            .map((section, index) => <li
-                                key={`header-section-${index}`}
-                                className="app__header-section"
-                                onClick={() => this.props.changeSection(index)}>
-                                <NavLink
-                                    exact
+                        <nav className="app__header-button-container">
+                            {this
+                                .props
+                                .sections
+                                .names
+                                .map((section, index) => <Link
+                                    className="app__header-button-link"
+                                    key={`button-section-${index}`}
+                                    onClick={() => this.props.changeSection(index)}
                                     to={this.props.sections.names[index] === 'Home'
                                     ? '/'
-                                    : this
+                                    : `/${this
                                         .props
                                         .sections
                                         .names[index]
-                                        .toLowerCase()}>
-                                    {section}
-                                </NavLink>
-                                <span className="app__header-section-pointer"></span>
-                            </li>)}
-                    </ul>
+                                        .toLowerCase()}`}>
+                                    <img
+                                        className="app__header-button-image"
+                                        alt={`${this.props.sections.names[index]} Button`}
+                                        src={require(`../../images/header-${this.props.sections.names[index].toLowerCase()}-button.png`)}/>
+                                </Link>)}
+                        </nav>
+                    )}
+                    {!this.props.isMobile && (
+                        <ul className="app__header-sections">
+                            {this
+                                .props
+                                .sections
+                                .names
+                                .map((section, index) => <li
+                                    key={`header-section-${index}`}
+                                    className="app__header-section"
+                                    onClick={() => this.props.changeSection(index)}>
+                                    <NavLink
+                                        activeStyle={{
+                                        backgroundColor: 'white',
+                                        color: 'black'
+                                    }}
+                                        exact
+                                        to={this.props.sections.names[index] === 'Home'
+                                        ? '/'
+                                        : `/${this
+                                            .props
+                                            .sections
+                                            .names[index]
+                                            .toLowerCase()}`}>
+                                        {section}
+                                    </NavLink>
+                                </li>)}
+                        </ul>
                     )}
                 </nav>
                 <div className="app__header-banner">

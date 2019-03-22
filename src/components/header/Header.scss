@@ -45,9 +45,8 @@
 		border: 2px solid $app-white;
 		border-radius: 50%;
 		transition: all .1s;
-		&:hover {
-			//border-color: $app-light-blue;
-			transform: scale(1.75);
+		&:hover, &:focus {
+			transform: scale(1.75);	
 		}
 	}
 
@@ -114,18 +113,6 @@
         }
     }
 
-    &__header-section-pointer {
-        width: 92px;
-        background-color: $app-dark-blue;
-        display: block;
-        height: 1px;
-        margin: 0 auto;
-        top: -4px;
-        position: relative;
-        border: 2px solid $app-black;
-        z-index: 2;
-    }
-
     &__header-banner,
     &__header-section {
         text-transform: uppercase;
@@ -138,7 +125,7 @@
         justify-content: center;
         align-items: center;
         transition: height 0.1s;
-        box-shadow: 0 -8px 16px 2px #4b00ff;
+        box-shadow: 0 -8px 16px 2px $app-header-border;
         @include from($tablet) {
             height: 210px;
         }
