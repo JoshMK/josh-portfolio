@@ -91,7 +91,13 @@ class Header extends Component {
                 <div className="app__header-banner">
                     <h1
                         className="app__header-title"
-                        dangerouslySetInnerHTML={this.splitSectionTitle(this.props.sections.names[currentIndex])}/>
+                        dangerouslySetInnerHTML={this
+                        .props
+                        .sections
+                        .names
+                        .indexOf(this.props.location.pathname.replace('/', '')) === -1
+                        ? this.splitSectionTitle('projects')
+                        : this.splitSectionTitle(this.props.sections.names[currentIndex])}/> {/* this.props.sections.names[currentIndex] */}
                 </div>
             </header>
         );

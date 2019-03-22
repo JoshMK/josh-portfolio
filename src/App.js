@@ -26,26 +26,6 @@ class App extends Component {
             this.setState({isMobile: true});
         }
     };
-
-    setInitialSection = name => {
-        if (name.includes('/projects')) {
-            this.setState({sectionIndex: 2});
-        } else {
-            if (name !== '/') {
-                const newName = name
-                    .replace('/', '')
-                    .charAt(0)
-                    .toUpperCase() + name.slice(2);
-                this.setState({
-                    sectionIndex: this
-                        .state
-                        .sections
-                        .names
-                        .indexOf(newName)
-                });
-            }
-        }
-    };
     playSound = sound => {
         sound.play();
     };
