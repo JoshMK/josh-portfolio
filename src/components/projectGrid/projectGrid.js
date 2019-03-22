@@ -11,30 +11,30 @@ class projectGrid extends Component {
                     ? ' app__grid-prompt--flash'
                     : ''}`}>Select Stage
                     <br/>
-                    <span className="app__grid-prompt-alt">Press Start</span>
+                    <span className="app__grid-prompt--alt">Press Start</span>
                 </h2>
                 <div className="columns is-centered is-alternate">
                     <div className="column">
-                        <ProjectBlock captionText='divineman'/>
+                        <ProjectBlock projectSlug='jesus-always-existed' captionText='divineman'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock captionText='fishman'/>
+                        <ProjectBlock projectSlug='san-pedro-fish-market' captionText='fishman'/>
                     </div>
                 </div>
                 <div className="columns is-centered">
                     <div className="column">
-                        <ProjectBlock captionText='georgiaman'/>
+                        <ProjectBlock projectSlug='ajc' captionText='georgiaman'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock captionText='eventman'/>
+                        <ProjectBlock projectSlug='access-atlanta' captionText='eventman'/>
                     </div>
                 </div>
                 <div className="columns is-centered is-alternate">
                     <div className="column">
-                        <ProjectBlock captionText='newsman'/>
+                        <ProjectBlock projectSlug='rare' captionText='newsman'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock captionText='molarman'/>
+                        <ProjectBlock projectSlug='austin-smiles' captionText='molarman'/>
                     </div>
                 </div>
             </div>

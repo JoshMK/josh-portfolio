@@ -31,18 +31,22 @@ class App extends Component {
         this.setState({sectionIndex: index});
     };
     setInitialSection = name => {
-        if (name !== '/') {
-            const newName = name
-                .replace('/', '')
-                .charAt(0)
-                .toUpperCase() + name.slice(2);
-            this.setState({
-                sectionIndex: this
-                    .state
-                    .sections
-                    .names
-                    .indexOf(newName)
-            });
+        if (name.includes('/projects')) {
+            this.setState({sectionIndex: 2});
+        } else {
+            if (name !== '/') {
+                const newName = name
+                    .replace('/', '')
+                    .charAt(0)
+                    .toUpperCase() + name.slice(2);
+                this.setState({
+                    sectionIndex: this
+                        .state
+                        .sections
+                        .names
+                        .indexOf(newName)
+                });
+            }
         }
     };
     playSound = sound => {
@@ -117,7 +121,7 @@ class App extends Component {
                             key='/bio'
                             render={props => <InfoSection
                             {...props}
-                            textContent={`<p class='app__info-text'>I'm a Mary Hardin-Baylor graduate in computer science. I specialize in frontend web development but have solid backend tech experience.</p> <p class='app__info-text'><span class='app__info-text--em'>My frontend tools:</span> HTML, CSS/SCSS, minimalist CSS Frameworks (like Bulma), modern JavaScript (with Babel, Webpack, and all the trimmings), React (with plans to pick up Vue.js on the horizon), and occasionally jQuery. I'm also keen on website accessibility (y'know, stuff like properly structured, semantic markup and 508 compliance.)</p> <p class='app__info-text'><span class='app__info-text--em'>My backend tools:</span> NodeJS (writing scripts/tasks), PHP and Twig. I'm also proficient with CMSs like WordPress and Craft.</p> <p class='app__info-text'><span class='app__info-text--em'>Misc. skills:</span> web hosting, DNS Management, optimization, and basic SEO. I'd be a jack-of-all-trades if my name wasn't 'Josh'.</p> `}/>}/>
+                            textContent={`<p class='app__info-text'>I'm a Mary Hardin-Baylor graduate in computer science. I specialize in frontend web development but have solid backend tech experience as well.</p> <p class='app__info-text'><span class='app__info-text--em'>My frontend tools:</span> HTML, CSS/SCSS, minimalist CSS Frameworks (like Bulma), modern JavaScript (with Babel, Webpack, and all the trimmings), React (with plans to pick up Vue.js on the horizon), and occasionally jQuery. I'm also keen on website accessibility (y'know, stuff like properly structured, semantic markup and 508 compliance.)</p> <p class='app__info-text'><span class='app__info-text--em'>My backend tools:</span> NodeJS (writing scripts/tasks), PHP and Twig. I'm also proficient with CMSs like WordPress and Craft.</p> <p class='app__info-text'><span class='app__info-text--em'>Misc. skills:</span> web hosting, DNS Management, optimization, and basic SEO. I'd be a jack-of-all-trades if my name wasn't 'Josh'.</p> `}/>}/>
                         <Route
                             exact
                             path='/projects'

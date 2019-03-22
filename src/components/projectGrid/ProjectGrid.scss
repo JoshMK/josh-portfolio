@@ -5,14 +5,14 @@
 .app {
         &__project-grid {
             position: relative;
-            margin-top: 8px;
+            margin-top: 16px;
             padding-bottom: 16px;
             @include from ($tablet) {
                 padding-bottom: 0;
             }
         }
         &__grid-prompt {
-            margin: 32px 32px 24px 32px;
+            margin: 24px 32px;
             color: $app-white;
             font-family: 'Press Start 2p', 'sans-serif';
             font-size: 1em;
@@ -32,7 +32,7 @@
                 transform: translate(-50%, -50%);
             }
         }
-        &__grid-prompt-alt {
+        &__grid-prompt--alt {
             display: block;
             margin-top: 16px;
         }
