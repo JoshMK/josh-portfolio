@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {NavLink, Link} from "react-router-dom";
+import {NavLink, Link, withRouter} from "react-router-dom";
 import './Header.scss';
 
 class Header extends Component {
@@ -15,7 +15,22 @@ class Header extends Component {
         }
         return {__html: `${newSection}`};
     };
+
+    changeSection = (name, history) => {
+        let newName = name === 'home'
+            ? '/'
+            : `/${name.toLowerCase()}`;
+        history.push(newName);
+    };
+
     render() {
+        let currentIndex = this.props.location.pathname === '/'
+            ? 0
+            : this
+                .props
+                .sections
+                .names
+                .indexOf(this.props.location.pathname.replace('/', ''));
 
         return (
             <header>
@@ -29,8 +44,8 @@ class Header extends Component {
                                 .map((section, index) => <Link
                                     className="app__header-button-link"
                                     key={`button-section-${index}`}
-                                    onClick={() => this.props.changeSection(index)}
-                                    to={this.props.sections.names[index] === 'Home'
+                                    onClick={() => this.changeSection(this.props.sections.names[index], this.props.history)}
+                                    to={this.props.sections.names[index] === 'home'
                                     ? '/'
                                     : `/${this
                                         .props
@@ -53,14 +68,14 @@ class Header extends Component {
                                 .map((section, index) => <li
                                     key={`header-section-${index}`}
                                     className="app__header-section"
-                                    onClick={() => this.props.changeSection(index)}>
+                                    onClick={() => this.changeSection(this.props.sections.names[index], this.props.history)}>
                                     <NavLink
                                         activeStyle={{
                                         backgroundColor: 'white',
                                         color: 'black'
                                     }}
                                         exact
-                                        to={this.props.sections.names[index] === 'Home'
+                                        to={this.props.sections.names[index] === 'home'
                                         ? '/'
                                         : `/${this
                                             .props
@@ -76,11 +91,11 @@ class Header extends Component {
                 <div className="app__header-banner">
                     <h1
                         className="app__header-title"
-                        dangerouslySetInnerHTML={this.splitSectionTitle(this.props.currentSection)}/>
+                        dangerouslySetInnerHTML={this.splitSectionTitle(this.props.sections.names[currentIndex])}/>
                 </div>
             </header>
         );
     }
 }
 
-export default Header;
+export default withRouter(Header);
