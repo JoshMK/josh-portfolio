@@ -2,8 +2,8 @@
 import React, {Component} from 'react';
 import {Route, Switch} from "react-router-dom";
 import posed, {PoseGroup} from 'react-pose';
-import {Helmet} from "react-helmet";
 //Custom components
+import MetaData from './components/metaData/MetaData'
 import Header from './components/header/Header';
 import InfoSection from './components/infoSection/InfoSection';
 import ProjectGrid from './components/projectGrid/ProjectGrid';
@@ -66,12 +66,7 @@ class App extends Component {
         });
         return (
             <React.Fragment>
-                <Helmet>
-                    <title>{`Joshua Kirwin | ${this.state.sections.names[this.state.sectionIndex]}`}</title>
-                    <meta
-                        name='description'
-                        content="Joshua Kirwin's amazing online portfolio of mystical wonders"/>
-                </Helmet>
+                <MetaData/>
                 <Header
                     sections={this.state.sections}
                     changeSection={this.changeSection}

@@ -93,9 +93,9 @@ class Header extends Component {
                         className="app__header-title"
                         dangerouslySetInnerHTML={this
                         .props
-                        .sections
-                        .names
-                        .indexOf(this.props.location.pathname.replace('/', '')) === -1
+                        .location
+                        .pathname
+                        .includes('/projects/')
                         ? this.splitSectionTitle('projects')
                         : this.splitSectionTitle(this.props.sections.names[currentIndex])}/> {/* this.props.sections.names[currentIndex] */}
                 </div>
