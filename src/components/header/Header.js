@@ -24,80 +24,60 @@ class Header extends Component {
     };
 
     render() {
-        let currentIndex = this.props.location.pathname === '/'
+        const pathName = this.props.location.pathname;
+        const sectionNames = this.props.sections.names;
+        let currentIndex = pathName === '/'
             ? 0
-            : this
-                .props
-                .sections
-                .names
-                .indexOf(this.props.location.pathname.replace('/', ''));
+            : sectionNames.indexOf(pathName.replace('/', ''));
 
         return (
             <header>
                 <nav className="app__header">
                     {this.props.isMobile && (
                         <nav className="app__header-button-container">
-                            {this
-                                .props
-                                .sections
-                                .names
-                                .map((section, index) => <Link
-                                    className="app__header-button-link"
-                                    key={`button-section-${index}`}
-                                    onClick={() => this.changeSection(this.props.sections.names[index], this.props.history)}
-                                    to={this.props.sections.names[index] === 'home'
-                                    ? '/'
-                                    : `/${this
-                                        .props
-                                        .sections
-                                        .names[index]
-                                        .toLowerCase()}`}>
-                                    <img
-                                        className="app__header-button-image"
-                                        alt={`${this.props.sections.names[index]}`}
-                                        src={require(`../../images/header-${this.props.sections.names[index].toLowerCase()}-button.png`)}/>
-                                </Link>)}
+                            {sectionNames.map((section, index) => <Link
+                                className="app__header-button-link"
+                                key={`button-section-${index}`}
+                                onClick={() => this.changeSection(sectionNames[index], this.props.history)}
+                                to={sectionNames[index] === 'home'
+                                ? '/'
+                                : `/${sectionNames[index].toLowerCase()}`}>
+                                <img
+                                    className="app__header-button-image"
+                                    alt={`${sectionNames[index]}`}
+                                    src={require(`../../images/header-${sectionNames[index].toLowerCase()}-button.png`)}/>
+                            </Link>)}
                         </nav>
                     )}
                     {!this.props.isMobile && (
                         <ul className="app__header-sections">
-                            {this
-                                .props
-                                .sections
-                                .names
-                                .map((section, index) => <li
-                                    key={`header-section-${index}`}
-                                    className="app__header-section"
-                                    onClick={() => this.changeSection(this.props.sections.names[index], this.props.history)}>
-                                    <NavLink
-                                        activeStyle={{
-                                        backgroundColor: 'white',
-                                        color: 'black'
-                                    }}
-                                        exact
-                                        to={this.props.sections.names[index] === 'home'
-                                        ? '/'
-                                        : `/${this
-                                            .props
-                                            .sections
-                                            .names[index]
-                                            .toLowerCase()}`}>
-                                        {section}
-                                    </NavLink>
-                                </li>)}
+                            {sectionNames.map((section, index) => <li
+                                key={`header-section-${index}`}
+                                className="app__header-section"
+                                onClick={() => this.changeSection(sectionNames[index], this.props.history)}>
+                                <NavLink
+                                    activeStyle={{
+                                    backgroundColor: 'white',
+                                    color: 'black'
+                                }}
+                                    exact
+                                    to={sectionNames[index] === 'home'
+                                    ? '/'
+                                    : `/${sectionNames[index].toLowerCase()}`}>
+                                    {section}
+                                </NavLink>
+                            </li>)}
                         </ul>
                     )}
                 </nav>
                 <div className="app__header-banner">
                     <h1
                         className="app__header-title"
-                        dangerouslySetInnerHTML={this
-                        .props
-                        .location
-                        .pathname
-                        .includes('/projects/')
+                        dangerouslySetInnerHTML={pathName.includes('/projects/')
                         ? this.splitSectionTitle('projects')
-                        : this.splitSectionTitle(this.props.sections.names[currentIndex])}/> {/* this.props.sections.names[currentIndex] */}
+                        : sectionNames[currentIndex] === 'home' || sectionNames.indexOf(pathName.replace('/', '')) !== -1
+                            ? this.splitSectionTitle(sectionNames[currentIndex])
+                            : this.splitSectionTitle('404')}/>
                 </div>
             </header>
         );
