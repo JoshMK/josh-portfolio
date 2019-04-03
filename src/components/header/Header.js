@@ -54,7 +54,7 @@ class Header extends Component {
                                         .toLowerCase()}`}>
                                     <img
                                         className="app__header-button-image"
-                                        alt={`${this.props.sections.names[index]} Button`}
+                                        alt={`${this.props.sections.names[index]}`}
                                         src={require(`../../images/header-${this.props.sections.names[index].toLowerCase()}-button.png`)}/>
                                 </Link>)}
                         </nav>
