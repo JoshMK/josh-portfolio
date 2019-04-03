@@ -55,7 +55,7 @@ class Header extends Component {
                                 key={`header-section-${index}`}
                                 className="app__header-section"
                                 onClick={() => this.changeSection(sectionNames[index], this.props.history)}>
-                                <NavLink
+                                {index !== 2 && <NavLink
                                     activeStyle={{
                                     backgroundColor: 'white',
                                     color: 'black'
@@ -66,6 +66,18 @@ class Header extends Component {
                                     : `/${sectionNames[index].toLowerCase()}`}>
                                     {section}
                                 </NavLink>
+}
+                                {index === 2 && <NavLink
+                                    activeStyle={{
+                                    backgroundColor: 'white',
+                                    color: 'black'
+                                }}
+                                    to={sectionNames[index] === 'home'
+                                    ? '/'
+                                    : `/${sectionNames[index].toLowerCase()}`}>
+                                    {section}
+                                </NavLink>
+}
                             </li>)}
                         </ul>
                     )}

@@ -67,9 +67,7 @@ class App extends Component {
         return (
             <React.Fragment>
                 <MetaData/>
-                <Header
-                    sections={this.state.sections}
-                    isMobile={this.state.isMobile}/> {/*<PoseGroup>*/}
+                <Header sections={this.state.sections} isMobile={this.state.isMobile}/> {/*<PoseGroup>*/}
                 {/*<RouteContainer key={location.pathname}>*/}
                 <Switch>
                     <Route
@@ -90,6 +88,10 @@ class App extends Component {
                             textContent={`<p class='app__info-text'>Any resemblance between this section and a classic videogame is completely coincidental.</p> `}/>
                         <ProjectGrid projectPromptIsAnimated={this.state.projectPromptIsAnimated}/>
                     </React.Fragment>}/>
+                    <Route
+                        path='/projects'
+                        render={() => <InfoSection
+                        textContent={`<p class='app__info-text'>Test</p> `}/>}/>
                     <Route
                         exact
                         path='/contact'
