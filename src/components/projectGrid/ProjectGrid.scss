@@ -5,10 +5,10 @@
 .app {
         &__project-grid {
             position: relative;
-            margin-top: 16px;
             padding-bottom: 16px;
             @include from ($tablet) {
                 padding-bottom: 0;
+                margin-bottom: 24px;
             }
         }
         &__grid-prompt {

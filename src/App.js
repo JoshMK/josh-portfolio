@@ -7,6 +7,7 @@ import MetaData from './components/metaData/MetaData'
 import Header from './components/header/Header';
 import InfoSection from './components/infoSection/InfoSection';
 import ProjectGrid from './components/projectGrid/ProjectGrid';
+import Footer from './components/footer/Footer';
 //audio import laughTrack from './audio/RDLG-2.mp3'; global styles
 import './App.scss';
 import {hidden} from 'ansi-colors';
@@ -103,6 +104,7 @@ class App extends Component {
                 </Switch>
                 {/*</RouteContainer>*/}
                 {/*</PoseGroup>*/}
+                <Footer/>
             </React.Fragment>
         );
     }

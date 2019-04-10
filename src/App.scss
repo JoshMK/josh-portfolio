@@ -4,13 +4,14 @@
 @import "~bulma/sass/grid/_all";
 //global styles
 
-body,
-html {
-	height: 100%;
+#root {
+	padding-bottom: 2.5rem;
 }
 
 body,
 html {
+	position: relative;
+  min-height: 100vh;
 	background-color: $app-light-blue;
 }
 

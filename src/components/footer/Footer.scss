@@ -1,0 +1,22 @@
+@import "../../_variables.scss";
+//bulma imports
+@import "~bulma/sass/utilities/mixins";
+
+.app {
+    &__footer {
+        background-color: $app-header-border;
+        height: 48px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__footer-text {
+        color: $app-white;
+        font-size: .75em;
+        display: inline-block;
+        font-family: 'Press Start 2p', 'sans-serif';
+    }
+}
