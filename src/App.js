@@ -7,6 +7,7 @@ import MetaData from './components/metaData/MetaData'
 import Header from './components/header/Header';
 import InfoSection from './components/infoSection/InfoSection';
 import ProjectGrid from './components/projectGrid/ProjectGrid';
+import ProjectSummary from './components/projectSummary/ProjectSummary';
 import Footer from './components/footer/Footer';
 //audio import laughTrack from './audio/RDLG-2.mp3'; global styles
 import './App.scss';
@@ -16,6 +17,24 @@ class App extends Component {
     state = {
         sections: {
             names: ['home', 'bio', 'projects', 'contact']
+        },
+        subsections: {
+            slugs: [
+                'jesus-always-existed',
+                'ajc',
+                'rare',
+                'san-pedro-fish-market',
+                'access-atlanta',
+                'austin-smiles'
+            ],
+            images: [
+                'project-1-screen',
+                'project-1-screen',
+                'project-1-screen',
+                'project-1-screen',
+                'project-1-screen',
+                'project-1-screen'
+            ]
         },
         isMobile: true,
         promptIsAnimated: false
@@ -88,11 +107,13 @@ class App extends Component {
                         <InfoSection
                             textContent={`<p class='app__info-text'>Any resemblance between this section and a classic videogame is completely coincidental.</p> `}/>
                         <ProjectGrid projectPromptIsAnimated={this.state.projectPromptIsAnimated}/>
-                    </React.Fragment>}/>
-                    <Route
-                        path='/projects'
-                        render={() => <InfoSection
-                        textContent={`<p class='app__info-text'>Test</p> `}/>}/>
+                    </React.Fragment>}/> {this
+                        .state
+                        .subsections
+                        .slugs
+                        .map((slug, index) => <Route
+                            path={`/projects/${slug}`}
+                            render={() => <ProjectSummary projectImage={this.state.subsections.images[index]}/>}/>)}
                     <Route
                         exact
                         path='/contact'

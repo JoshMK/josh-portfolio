@@ -1,0 +1,14 @@
+@import "../../_variables.scss";
+//bulma imports
+@import "~bulma/sass/utilities/mixins";
+
+.app {
+    &__project-image {
+        display: block;
+        //height: 480px;
+        //width: 640px;
+        border: 4px solid black;
+        border-radius: 16px;
+        margin: 96px auto 32px auto;		
+    }
+}
