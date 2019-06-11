@@ -7,6 +7,10 @@
         margin: 96px auto 48px;
         display: flex;
         justify-content: center;
+        flex-direction: column;
+        @include from($tablet) {
+            flex-direction: row;
+        }
     }
     &__project-nav,
     &__project-web-link {
@@ -20,9 +24,9 @@
         }
     }
     &__project-web-link {
-        display: block;
+        display: inline-block;
         height: 16px;
-        padding-bottom: 2px;
+        padding-bottom: 4px;
         text-align: center;
         width: auto;
         margin-top: 16px;
@@ -33,30 +37,43 @@
         &:hover {
             color: $app-light-blue;
         }
+        @include from ($tablet) {
+            display: block;
+        }
     }
     &__project-image-container {
         max-width: 640px;
     }
     &__project-text-container {
+        text-align: center;
         padding: 0 32px;
+        margin: 24px 16px 0 16px;
         background-color: $app-black;
         height: 474px;
-        margin-top: 64px;
-        margin-left: 16px;
         border: 8px ridge $app-section-border-color;
+        @include from($tablet) {
+            margin-top: 64px;
+            margin-left: 16px;
+            text-align: left;
+        }
     }
     &__project-title {
+        text-align: center;
         text-transform: uppercase;
         font-family: 'Ubuntu Mono', 'sans-serif';
         color: $app-white;
         margin-left: 4px;
+        @include from($tablet) {
+            text-align: left;
+        }
     }
     &__project-image {
+        width: 320px;
         display: block;
         border: 4px solid $app-black;
         border-radius: 8px;
         margin: 0 auto;
-        @include from($tablet) {
+        @include from($desktop) {
             height: 480px;
             width: 640px;
         }

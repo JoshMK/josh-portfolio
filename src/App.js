@@ -19,6 +19,14 @@ class App extends Component {
             names: ['home', 'bio', 'projects', 'contact']
         },
         subsections: {
+            names: [
+                'Jesus Always Existed',
+                'AJC',
+                'Rare',
+                'San Pedro Fish Market',
+                'Access Atlanta',
+                'Austin Smiles'
+            ],
             slugs: [
                 'jesus-always-existed',
                 'ajc',
@@ -113,7 +121,9 @@ class App extends Component {
                         .slugs
                         .map((slug, index) => <Route
                             path={`/projects/${slug}`}
-                            render={() => <ProjectSummary projectImage={this.state.subsections.images[index]}/>}/>)}
+                            render={() => <ProjectSummary 
+                            projectName={this.state.subsections.names[index]}
+                            projectImage={this.state.subsections.images[index]}/>}/>)}
                     <Route
                         exact
                         path='/contact'

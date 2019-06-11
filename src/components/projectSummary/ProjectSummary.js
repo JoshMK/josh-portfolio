@@ -8,7 +8,7 @@ class ProjectSummary extends Component {
             <section className='app__project-summary'>
                 <div className='app__project-image-container'>
                     <h2 className='app__project-title'>
-                        <Link className='app__project-nav' to='../projects'>Projects</Link> / Jesus Always Existed</h2>
+                        <Link className='app__project-nav' to='../projects'>Projects</Link> / {this.props.projectName}</h2>
                     <img
                         className='app__project-image'
                         src={require(`../../images/${this.props.projectImage}.png`)}
