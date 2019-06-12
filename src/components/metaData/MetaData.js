@@ -16,12 +16,15 @@ class MetaData extends Component {
 
     render() {
         const sectionTitle = this.props.location.pathname;
-        const camelCaseTitle = this
+        let camelCaseTitle = this
             .camelCase(sectionTitle)
             .replace(/-/g, ' ')
             .replace('/', '')
             .replace('/', ' | ');
-
+            //special case for AJC
+        if (camelCaseTitle === 'Projects | Ajc'){
+            camelCaseTitle = 'Projects | AJC';
+        }
         return (
             <Helmet>
                 <title>{`Joshua Kirwin | ${this.props.location.pathname === '/'
