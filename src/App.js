@@ -35,6 +35,14 @@ class App extends Component {
                 'access-atlanta',
                 'austin-smiles'
             ],
+            urls: [
+                'https://jesusalwaysexisted.com/',
+                'https://www.ajc.com/',
+                'https://rare.us/',
+                'https://www.sanpedrofish.com/',
+                'https://new.accessatlanta.com/',
+                'https://austinsmiles.org/'
+            ],
             images: [
                 'project-1-screen',
                 'project-1-screen',
@@ -121,7 +129,8 @@ class App extends Component {
                         .slugs
                         .map((slug, index) => <Route
                             path={`/projects/${slug}`}
-                            render={() => <ProjectSummary 
+                            render={() => <ProjectSummary
+                            projectLink={this.state.subsections.urls[index]}
                             projectName={this.state.subsections.names[index]}
                             projectImage={this.state.subsections.images[index]}/>}/>)}
                     <Route

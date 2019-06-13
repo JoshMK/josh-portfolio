@@ -4,7 +4,6 @@
 
 .app {
     &__header {
-        background-color: $app-dark-blue;
         height: 48px;
     }
 
@@ -120,12 +119,12 @@
 
     &__header-banner {
         height: 105px;
-        background-color: $app-light-gray;
+        background-color: $app-aqua;
         display: flex;
         justify-content: center;
         align-items: center;
         transition: height 0.1s;
-        box-shadow: 0 -16px 16px 2px $app-header-border;
+        //box-shadow: 0 -16px 16px 2px $app-header-border;
         @include from($tablet) {
             height: 210px;
         }

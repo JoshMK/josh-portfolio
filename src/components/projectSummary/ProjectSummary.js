@@ -17,8 +17,7 @@ class ProjectSummary extends Component {
             <section className='app__project-summary'>
                 <div className='app__project-image-container'>
                     <h2 className='app__project-title'>
-                        <Link className='app__project-nav' to='../projects'>Projects</Link>
-                        / {this.props.projectName}</h2>
+                        <Link className='app__project-nav' to='../projects'>Projects</Link> / {this.props.projectName}</h2>
                     <img
                         className='app__project-image'
                         src={require(`../../images/${this.props.projectImage}.png`)}
@@ -27,7 +26,7 @@ class ProjectSummary extends Component {
                 <div className='app__project-text-container'>
                     <a
                         className='app__project-web-link'
-                        href='https://jesusalwaysexisted.com/'
+                        href={this.props.projectLink}
                         target='_blank'>Visit Website</a>
                     <p>Tech used:</p>
                 </div>
