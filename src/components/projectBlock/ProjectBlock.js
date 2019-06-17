@@ -9,6 +9,7 @@ class projectBlock extends Component {
             .props
             .projectSlug
             .replace('-', ' ');
+        const robot = require(`../../images/${this.props.blockImage}.png`);
         return (
             <figure>
                 <Link className='app__project-link' to={`/projects/${this.props.projectSlug}`}>
@@ -17,6 +18,9 @@ class projectBlock extends Component {
                         tabIndex='0'
                         src={gridImg}
                         alt={`${projectName}`}/>
+                    <div className='app__project-block-image' style ={ 
+                        { backgroundImage: `url(${robot})` 
+                        } }></div>
                 </Link>
                 <figcaption className="app__project-name">{this.props.captionText}</figcaption>
             </figure>

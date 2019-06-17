@@ -78,6 +78,8 @@
         text-transform: uppercase;
         font-family: 'Ubuntu Mono', 'sans-serif';
         color: $app-white;
+        margin-left: 16px;
+        margin-right: 16px;
         @include from($desktop) {
             text-align: left;
             margin-left: 4px;
