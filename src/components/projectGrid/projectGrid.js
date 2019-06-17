@@ -15,18 +15,30 @@ class projectGrid extends Component {
                 </h2>
                 <div className="columns is-centered is-alternate">
                     <div className="column">
-                        <ProjectBlock projectSlug='jesus-always-existed' captionText='divineman' blockImage='divine-man'/>
+                        <ProjectBlock
+                            projectSlug='jesus-always-existed'
+                            captionText='divineman'
+                            blockImage='divine-man'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock projectSlug='san-pedro-fish-market' captionText='fishman' blockImage='fish-man'/>
+                        <ProjectBlock
+                            projectSlug='san-pedro-fish-market'
+                            captionText='fishman'
+                            blockImage='fish-man'/>
                     </div>
                 </div>
                 <div className="columns is-centered">
                     <div className="column">
-                        <ProjectBlock projectSlug='ajc' captionText='georgiaman' blockImage='georgia-man'/>
+                        <ProjectBlock
+                            projectSlug='ajc'
+                            captionText='georgiaman'
+                            blockImage='georgia-man'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock projectSlug='access-atlanta' captionText='eventman' blockImage='event-man'/>
+                        <ProjectBlock
+                            projectSlug='access-atlanta'
+                            captionText='eventman'
+                            blockImage='event-man'/>
                     </div>
                 </div>
                 <div className="columns is-centered is-alternate">
@@ -34,7 +46,10 @@ class projectGrid extends Component {
                         <ProjectBlock projectSlug='rare' captionText='newsman' blockImage='news-man'/>
                     </div>
                     <div className="column">
-                        <ProjectBlock projectSlug='austin-smiles' captionText='molarman' blockImage='molar-man'/>
+                        <ProjectBlock
+                            projectSlug='austin-smiles'
+                            captionText='molarman'
+                            blockImage='molar-man'/>
                     </div>
                 </div>
             </div>

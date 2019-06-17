@@ -42,9 +42,6 @@
             color: $app-light-red;
             background-color: $app-white;
         }
-        //@include from ($desktop) {
-        //    display: block;
-        //}
     }
     &__project-text {
         text-align: left;
@@ -61,16 +58,21 @@
     }
     &__project-text-container {
         text-align: center;
-        padding: 0 32px 0 20px;
+        padding: 0 32px 0 24px;
         margin: 24px 8px 0 8px;
         background-color: $app-black;
-        height: 474px;
-        overflow-y: scroll;
+        height: auto;
         max-width: 280px;
         border: 8px ridge $app-section-border-color;
+        &--scroll {
+            @include from($desktop){
+                overflow-y: scroll;
+            }
+        }
         @include from($desktop) {
             margin-top: 64px;
             margin-left: 16px;
+            height: 474px;
         }
     }
     &__project-title {

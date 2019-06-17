@@ -43,21 +43,38 @@ class App extends Component {
                 'https://new.accessatlanta.com/',
                 'https://austinsmiles.org/'
             ],
-            tools: [
-                'Craft 3, ES6, Webpack, Sass, Bulma, Hyperlane,',
-                'BlueConic, ES6, Sass',
-                'WordPress, ES6, Sass, PHP, wpVIP.com',
-                'Craft 2, Craft Commerce, ES6, Sass, PHP, Authorize.net, Foundation',
-                'React, WordPress, ES6, Webpack, NodeJS, Sass',
-                'WordPress, Salsa, PHP, Sass'
+            tech: [
+                'ES6, Sass, Bulma, Webpack, PHP, Twig, Craft 3, Hyperlane',
+                'ES6, Sass, BlueConic',
+                'ES6, Sass, PHP, WordPress, wpVIP.com',
+                'ES6, Sass, Foundation, PHP, Twig, Craft 2, Craft Commerce, Authorize.net',
+                'ES6, React, NodeJS, Sass, Webpack, WordPress',
+                'ES5, Sass, PHP, WordPress, Salsa CMS'
             ],
             facts: [
-                "The co-founder / CEO of Hyperlane contacted and chatted with me while I was working on this project. He's a nice guy. Would highly recommend the hosting platform.",
-                "I did the coding and designs for most of the modals on this site. Now you know who to blame when you go there and see something telling you to subscribe or disable your adblocker.",
-                "The site originally had a 'Rare Reviews' section under the 'Entertainment' category. I made a cool template for it that allowed content editors to embed videos, populate fields with show season / episode metadata via IMDB, and easily cycle through posts based on topic (i.e. 'The Punisher', 'Stranger Things'). Shame it doesn't exist anymore.",
-                "Graphics/mockups aside, I created and launched this entire site in eight months time. Yes, I somehow managed to implement a fully-functional ecommerce platform and user management system on top of the front-end components in less than a year. I spent many sleepless nights testing things, migrating user data from the previous site (which was in WordPress), and longing for the cold peace of the grave. All in all, it turned out pretty nicely.",
-                "One of this project's git branches has some code in it that dynamically pull colors and images from a design platform via a NodeJS task. Yep, that was me. Each neighborhood on the site was supposed to have its own header image and color theme, but I never got to merge things before my last day of work.",
-                "This is a great charity that you should donate to. What do you mean that's more of a 'fun opinion'? Pff, whatever Mr./Mrs. Pedantic."
+                "The co-founder / CEO of Hyperlane contacted and chatted with me while I was work" +
+                        "ing on this project. He's a nice guy. Would highly recommend the hosting platfor" +
+                        "m.",
+                "I did the coding and designs for most of the modals on this site. Now you know w" +
+                        "ho to blame when you go there and see something telling you to subscribe or disa" +
+                        "ble your adblocker.",
+                "The site originally had a 'Rare Reviews' section under the 'Entertainment' categ" +
+                        "ory. I made a cool template for it that allowed content editors to embed videos," +
+                        " populate fields with show season / episode metadata via IMDB, and easily cycle " +
+                        "through posts based on topic (i.e. 'The Punisher', 'Stranger Things'). Shame it " +
+                        "doesn't exist anymore.",
+                "Graphics/mockups aside, I created and launched this entire site in eight months " +
+                        "time. Yes, I somehow managed to implement a fully-functional ecommerce platform " +
+                        "and user management system on top of the front-end components in less than a yea" +
+                        "r. I spent many sleepless nights testing things, migrating user data from the pr" +
+                        "evious site (which was in WordPress), and longing for the cold peace of the grav" +
+                        "e. All in all, it turned out pretty nicely.",
+                "One of this project's git branches has some code in it that dynamically pull col" +
+                        "ors and images from a design platform via a NodeJS task. Yep, that was me. Each " +
+                        "neighborhood on the site was supposed to have its own header image and color the" +
+                        "me, but I never got to merge things before my last day of work.",
+                "This is a great charity that you should donate to. What do you mean that's more " +
+                        "of a 'fun opinion'? Pff, whatever Mr./Mrs. Pedantic."
             ],
             images: [
                 'project-1-screen',
@@ -146,8 +163,12 @@ class App extends Component {
                         .map((slug, index) => <Route
                             path={`/projects/${slug}`}
                             render={() => <ProjectSummary
-                            projectFact={this.state.subsections.facts[index]}
+                            scroll={slug === 'san-pedro-fish-market'
+                            ? true
+                            : false}
                             projectLink={this.state.subsections.urls[index]}
+                            projectFact={this.state.subsections.facts[index]}
+                            projectTech={this.state.subsections.tech[index]}
                             projectName={this.state.subsections.names[index]}
                             projectImage={this.state.subsections.images[index]}/>}/>)}
                     <Route

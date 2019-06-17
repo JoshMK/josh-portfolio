@@ -4,7 +4,7 @@ import {Helmet} from "react-helmet";
 
 class MetaData extends Component {
 
-    camelCase = (str) => {
+    camelCase = str => {
         return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
             if (+ match === 0) 
                 return ''; //
@@ -12,6 +12,16 @@ class MetaData extends Component {
                 ? match.toLowerCase()
                 : match.toUpperCase();
         });
+    };
+    updateDescription = path => {
+        switch (path){
+            case '/': return "Joshua Kirwin's amazing online portfolio of mystical wonders.";
+            case '/bio': return "Everything you ever wanted to know about Joshua Kirwin - minus his favorite pie flavor.";
+            case '/contact': return "Get in touch with me, won't you?"
+            case '/projects': return "A plethora of pizzazy projects Josh has pontificated over."
+            case '/projects/': return "A plethora of pizzazy projects Josh has pontificated over."
+            default: return "";
+        }
     }
 
     render() {
@@ -21,8 +31,8 @@ class MetaData extends Component {
             .replace(/-/g, ' ')
             .replace('/', '')
             .replace('/', ' | ');
-            //special case for AJC
-        if (camelCaseTitle === 'Projects | Ajc'){
+        //special case for AJC
+        if (camelCaseTitle === 'Projects | Ajc') {
             camelCaseTitle = 'Projects | AJC';
         }
         return (
@@ -32,7 +42,7 @@ class MetaData extends Component {
                         : camelCaseTitle}`}</title>
                 <meta
                     name='description'
-                    content="Joshua Kirwin's amazing online portfolio of mystical wonders"/>
+                    content={this.updateDescription(this.props.location.pathname)}/>
             </Helmet>
         );
     }

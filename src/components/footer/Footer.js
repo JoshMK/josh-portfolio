@@ -7,7 +7,8 @@ class Footer extends Component {
         const year = new Date();
         return (
             <footer className='app__footer'>
-                <span className='app__footer-text'>&copy; {year.getFullYear()} - Joshua Kirwin</span>
+                <span className='app__footer-text'>&copy; {year.getFullYear()}
+                    - Joshua Kirwin</span>
             </footer>
         );
     }

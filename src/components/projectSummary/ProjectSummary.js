@@ -5,9 +5,9 @@ import './ProjectSummary.scss';
 class ProjectSummary extends Component {
     scrollToTop = () => {
         const scroll = require('react-scroll');
-        scroll.animateScroll.scrollToTop({
-            duration: 250
-        });
+        scroll
+            .animateScroll
+            .scrollToTop({duration: 250});
     };
     componentDidMount() {
         this.scrollToTop();
@@ -23,14 +23,17 @@ class ProjectSummary extends Component {
                         src={require(`../../images/${this.props.projectImage}.png`)}
                         alt=''/>
                 </div>
-                <div className='app__project-text-container'>
+                <div
+                    className={`app__project-text-container${this.props.scroll
+                    ? ' app__project-text-container--scroll'
+                    : ''}`}>
                     <a
                         className='app__project-web-link'
                         href={this.props.projectLink}
-                        target='_blank' 
+                        target='_blank'
                         rel='noreferrer noopener'>Visit Website</a>
                     <p className='app__project-text'>Tech used:</p>
-                    <p className='app__project-text'>{this.props.projectTech}</p>
+                    <p className='app__project-text app__project-text--alt'>{this.props.projectTech}</p>
                     <p className='app__project-text'>Fun Fact:</p>
                     <p className='app__project-text app__project-text--alt'>{this.props.projectFact}</p>
                 </div>
