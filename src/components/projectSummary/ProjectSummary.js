@@ -27,8 +27,12 @@ class ProjectSummary extends Component {
                     <a
                         className='app__project-web-link'
                         href={this.props.projectLink}
-                        target='_blank'>Visit Website</a>
-                    <p>Tech used:</p>
+                        target='_blank' 
+                        rel='noreferrer noopener'>Visit Website</a>
+                    <p className='app__project-text'>Tech used:</p>
+                    <p className='app__project-text'>{this.props.projectTech}</p>
+                    <p className='app__project-text'>Fun Fact:</p>
+                    <p className='app__project-text app__project-text--alt'>{this.props.projectFact}</p>
                 </div>
             </section>
         );

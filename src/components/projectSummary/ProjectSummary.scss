@@ -26,37 +26,51 @@
         }
     }
     &__project-web-link {
+        background-color: $app-light-red;
         display: inline-block;
         height: 16px;
-        padding-bottom: 4px;
+        padding: 16px;
+        line-height: .75;
         text-align: center;
-        width: auto;
+        width: 90%;
         margin-top: 16px;
         text-transform: uppercase;
         font-family: 'Ubuntu Mono', 'sans-serif';
-        font-size: 1em;
-        border-bottom: 2px solid $app-white;
+        font-size: 1.25em;
+        border: 2px solid $app-white;
         &:hover {
-            color: $app-light-blue;
+            color: $app-light-red;
+            background-color: $app-white;
         }
-        @include from ($desktop) {
-            display: block;
-        }
+        //@include from ($desktop) {
+        //    display: block;
+        //}
     }
-    &__project-image-container {
-        //max-width: 640px;
+    &__project-text {
+        text-align: left;
+        font-size: 1.125em;
+        color: $app-white;
+        font-family: 'Ubuntu Mono', 'sans-serif';
+        text-transform: uppercase;
+        color: $app-light-red;
+        &--alt {
+            color: $app-white;
+            line-height: 1.125;
+            text-transform: initial;
+        }
     }
     &__project-text-container {
         text-align: center;
-        padding: 0 32px;
+        padding: 0 32px 0 20px;
         margin: 24px 8px 0 8px;
         background-color: $app-black;
         height: 474px;
+        overflow-y: scroll;
+        max-width: 280px;
         border: 8px ridge $app-section-border-color;
         @include from($desktop) {
             margin-top: 64px;
             margin-left: 16px;
-            text-align: left;
         }
     }
     &__project-title {
@@ -76,12 +90,9 @@
         border-radius: 8px;
         margin: 0 auto;
         transition: all .3s;
-        @include from($tablet) {
-            width: 320px;
-        }
         @include from($desktop) {
             height: 480px;
-            width: 640px;
+            width: 560px;
         }
     }
 }
