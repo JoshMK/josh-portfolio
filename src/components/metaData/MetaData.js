@@ -14,13 +14,22 @@ class MetaData extends Component {
         });
     };
     updateDescription = path => {
-        switch (path){
-            case '/': return "Joshua Kirwin's amazing online portfolio of mystical wonders.";
-            case '/bio': return "Everything you ever wanted to know about Joshua Kirwin - minus his favorite pie flavor.";
-            case '/contact': return "Get in touch with me, won't you?"
-            case '/projects': return "A plethora of pizzazy projects Josh has pontificated over."
-            case '/projects/': return "A plethora of pizzazy projects Josh has pontificated over."
-            default: return "";
+        if (path.indexOf('/projects/') !== -1) {
+            return 'A particular pizzazy project Josh has pontificated over.';
+        } else {
+            switch (path) {
+                case '/':
+                    return "Joshua Kirwin's amazing online portfolio of mystical wonders.";
+                case '/bio':
+                    return "Everything you ever wanted to know about Joshua Kirwin - minus his favorite pie " +
+                        "flavor.";
+                case '/contact':
+                    return "Get in touch with me, won't you?";
+                case '/projects':
+                    return "A plethora of pizzazy projects Josh has pontificated over.";
+                default:
+                    return "Joshua Kirwin's amazing online portfolio of mystical wonders.";
+            }
         }
     }
 
