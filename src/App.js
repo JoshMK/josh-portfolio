@@ -78,11 +78,19 @@ class App extends Component {
             ],
             images: [
                 'project-1-screen',
-                'project-1-screen',
-                'project-1-screen',
-                'project-1-screen',
-                'project-1-screen',
-                'project-1-screen'
+                'project-3-screen',
+                'project-6-screen',
+                'project-2-screen',
+                'project-4-screen',
+                'project-5-screen'
+            ],
+            imagesText: [
+                'homepage screenshot of the Jesus Always Existed website',
+                'homepage screenshot of the Atlanta Journal Constitution website',
+                'homepage screenshot of the Rare.us website',
+                'homepage screenshot of the San Pedro Fish Market website',
+                'homepage screenshot of the Access Atlanta website',
+                'homepage screenshot of the Austin Smiles website'
             ]
         },
         isMobile: true,
@@ -170,6 +178,7 @@ class App extends Component {
                             projectFact={this.state.subsections.facts[index]}
                             projectTech={this.state.subsections.tech[index]}
                             projectName={this.state.subsections.names[index]}
+                            projectAltText={this.state.subsections.imagesText[index]}
                             projectImage={this.state.subsections.images[index]}/>}/>)}
                     <Route
                         exact

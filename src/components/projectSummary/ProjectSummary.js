@@ -21,7 +21,7 @@ class ProjectSummary extends Component {
                     <img
                         className='app__project-image'
                         src={require(`../../images/${this.props.projectImage}.png`)}
-                        alt=''/>
+                        alt={this.props.projectAltText}/>
                 </div>
                 <div
                     className={`app__project-text-container${this.props.scroll
