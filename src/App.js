@@ -124,6 +124,7 @@ class App extends Component {
     }
 
     render() {
+        // <p class='app__info-text'><span class='app__info-text--em'>Carrier Pigeon: </span> <a class='app__info-icon icon-bird' href=''></a></p>
         // let laughSound = new Audio(laughTrack); this.playSound(laughSound); <span
         // class='icon-music' onClick=${() => this.playSound(laughSound)}></span>
         //
@@ -184,7 +185,7 @@ class App extends Component {
                         exact
                         path='/contact'
                         render={() => <InfoSection
-                        textContent={`<p class='app__info-text'><span class='app__info-text--em'>E-mail:</span> <a class='app__info-icon icon-envelop' href='' class='icon-envelop'></a></p> <p class='app__info-text'><span class='app__info-text--em'>LinkedIn:</span> <a class='app__info-icon icon-linkedin' href='https://www.linkedin.com/in/joshua-kirwin/' target='_blank'></a></p> <p class='app__info-text'><span class='app__info-text--em'>Carrier Pigeon: </span> <a class='app__info-icon icon-bird' href=''></a></p>`}/>}/>
+                        textContent={`<p class='app__info-text'><span class='app__info-text--em'>E-mail:</span> <a class='app__info-icon icon-envelop' href='mailto:joshuakirwin@gmail.com' class='icon-envelop'></a></p> <p class='app__info-text'><span class='app__info-text--em'>LinkedIn:</span> <a class='app__info-icon icon-linkedin' href='https://www.linkedin.com/in/joshua-kirwin/' target='_blank'></a></p>`}/>}/>
                     <Route
                         render={() => <InfoSection
                         textContent={`<p class='app__info-text'>Sorry, no pages to be found here.</p>`}/>}/>

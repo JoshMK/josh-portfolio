@@ -23,23 +23,6 @@ body {
     }
 }
 
-::-webkit-scrollbar-track
-{
-    border: 1px solid $app-light-blue;
-    background-color: $app-white;
-}
-
-::-webkit-scrollbar
-{
-    width: 10px;
-    background-color: $app-white;
-}
-
-::-webkit-scrollbar-thumb
-{
-    background-color: #ec6860;  
-}
-
 figure {
     margin: 0;
 }
