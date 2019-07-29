@@ -71,7 +71,7 @@ class App extends Component {
                         "r. I spent many sleepless nights testing things, migrating user data from the pr" +
                         "evious site (which was in WordPress), and longing for the cold peace of the grav" +
                         "e. All in all, it turned out pretty nicely.",
-                "One of this project's git branches has some code in it that dynamically pull col" +
+                "One of this project's git branches has some code in it that dynamically pulls col" +
                         "ors and images from a design platform via a NodeJS task. Yep, that was me. Each " +
                         "neighborhood on the site was supposed to have its own header image and color the" +
                         "me, but I never got to merge things before my last day of work.",
