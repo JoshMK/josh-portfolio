@@ -6,11 +6,16 @@
 	&__info-section {
 		margin: 72px 8px 16px 8px;
 		padding: 1em;
-		border: 8px ridge $app-section-border-color;
+		border: 8px solid $app-section-border-color;
 		background-color: $app-section-color;
 
 		@include from ($tablet) {
-			margin: 96px 32px 32px 32px
+			margin: 96px 8px 32px 8px;
+		}
+		@include from ($desktop) {
+			max-width: 960px;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 

@@ -63,9 +63,9 @@
         background-color: $app-black;
         height: auto;
         max-width: 280px;
-        border: 8px ridge $app-section-border-color;
+        border: 8px solid $app-section-border-color;
         &::-webkit-scrollbar-track {
-            border: 1px solid $app-light-blue;
+            //border: 1px solid $app-light-blue;
             background-color: $app-white;
         }
 
