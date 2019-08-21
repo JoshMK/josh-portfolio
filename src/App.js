@@ -167,7 +167,7 @@ class App extends Component {
                             path='/projects'
                             render={() => <React.Fragment>
                             <InfoSection
-                                textContent={`<p class='app__info-text'>Any resemblance between this and a classic videogame is total coincidence.</p> `}/>
+                                textContent={`<p class='app__info-text'>Any resemblance this has to a classic videogame is sheer coincidence.</p> `}/>
                             <ProjectGrid projectPromptIsAnimated={this.state.projectPromptIsAnimated}/>
                         </React.Fragment>}/> {this
                             .state
