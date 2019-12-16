@@ -60,12 +60,11 @@
 		text-align: center;
 		padding: 0 32px 0 24px;
 		margin: 24px 8px 0;
-		background-color: $app-black;
+		background-color: $app-section-color;
 		height: auto;
 		max-width: 280px;
 		border: 8px solid $app-section-border-color;
 		&::-webkit-scrollbar-track {
-			//border: 1px solid $app-light-blue;
 			background-color: $app-white;
 		}
 

@@ -26,7 +26,7 @@ class Header extends Component {
 
 		return (
 			<header>
-				<nav className="app__header">
+				<nav className="app__header" aria-label="Primary">
 					{this.props.isMobile && (
 						<nav className="app__header-button-container">
 							{sectionNames.map((section, index) => (

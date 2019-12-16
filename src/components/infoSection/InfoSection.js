@@ -3,11 +3,11 @@ import "./InfoSection.scss";
 
 class InfoSection extends Component {
 	setHTML = () => {
-		return { __html: this.props.textContent };
+		return { __html: this.props.subtitle + this.props.textContent };
 	};
 	render() {
 		return (
-			<div
+			<section
 				className="app__info-section"
 				dangerouslySetInnerHTML={this.setHTML()}
 			/>
