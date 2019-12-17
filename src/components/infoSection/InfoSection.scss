@@ -30,10 +30,11 @@
 			color: $app-light-red;
 		}
 		&--subtitle {
-			border-left: 8px inset $app-section-border-color;
-			border-bottom: 8px solid $app-section-border-color;
+			transform: skewY(-2deg);
+			border-left: 2px solid $app-section-border-color;
+			border-bottom: 2px inset $app-section-border-color;
 			display: inline-block;
-			margin: 16px 0 0 8px;
+			margin: 16px 8px 0 8px;
 			padding-bottom: 8px;
 			@include from($tablet) {
 				margin-top: 24px;

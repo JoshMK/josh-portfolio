@@ -15,12 +15,21 @@
 		}
 	}
 	&__project-nav,
+	&__project-title,
+	&__project-seperator {
+		font-size: 1.5em;
+		font-weight: bold;
+		font-family: "Ubuntu Mono", "sans-serif";
+		text-transform: uppercase;
+	}
+	&__project-nav,
 	&__project-web-link {
 		text-decoration: none;
 		color: $app-white;
 		transition: color 0.3s;
 	}
 	&__project-nav {
+		margin-right: 4px;
 		&:hover {
 			color: $app-dark-blue;
 		}
@@ -88,15 +97,13 @@
 		}
 	}
 	&__project-title {
+		display: inline-block;
 		text-align: center;
-		text-transform: uppercase;
-		font-family: "Ubuntu Mono", "sans-serif";
 		color: $app-white;
-		margin-left: 16px;
-		margin-right: 16px;
+		margin-left: 4px;
 		@include from($desktop) {
 			text-align: left;
-			margin-left: 4px;
+			display: inline-block;
 		}
 	}
 	&__project-image {
@@ -108,6 +115,22 @@
 		@include from($desktop) {
 			height: 480px;
 			width: 560px;
+		}
+	}
+}
+
+@media screen and (max-width: 420px) {
+	.app {
+		&__project-nav,
+		&__project-title {
+			display: inline-block;
+			margin-top: 24px;
+		}
+		&__project-title {
+			text-align: left;
+			margin-top: 8px;
+			margin-left: 0;
+			display: block;
 		}
 	}
 }

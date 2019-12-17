@@ -14,12 +14,13 @@ class ProjectSummary extends Component {
 		return (
 			<section className="app__project-summary">
 				<div className="app__project-image-container">
-					<h2 className="app__project-title">
+					<nav aria-label="Secondary">
 						<Link className="app__project-nav" to="../projects">
 							Projects
 						</Link>{" "}
-						<span>/</span> {this.props.projectName}
-					</h2>
+						<span className="app__project-seperator">/</span>{" "}
+						<h2 className="app__project-title">{this.props.projectName}</h2>
+					</nav>
 					<a
 						href={this.props.projectLink}
 						target="_blank"
