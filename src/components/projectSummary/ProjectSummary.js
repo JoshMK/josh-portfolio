@@ -12,8 +12,8 @@ class ProjectSummary extends Component {
 	}
 	render() {
 		return (
-			<section className="app__project-summary">
-				<div className="app__project-image-container">
+			<div className="app__project-summary">
+				<section className="app__project-image-container">
 					<nav aria-label="Secondary">
 						<h2 className="app__project-title">
 							<Link className="app__project-nav" to="../projects">
@@ -22,20 +22,20 @@ class ProjectSummary extends Component {
 							<span className="app__project-seperator">/</span>{" "}
 							{this.props.projectName}
 						</h2>
-						<a
-							href={this.props.projectLink}
-							target="_blank"
-							rel="noreferrer noopener"
-						>
-							<img
-								className="app__project-image"
-								src={require(`../../images/${this.props.projectImage}.png`)}
-								alt={this.props.projectAltText}
-							/>
-						</a>
 					</nav>
-				</div>
-				<article
+					<a
+						href={this.props.projectLink}
+						target="_blank"
+						rel="noreferrer noopener"
+					>
+						<img
+							className="app__project-image"
+							src={require(`../../images/${this.props.projectImage}.png`)}
+							alt={this.props.projectAltText}
+						/>
+					</a>
+				</section>
+				<aside
 					className={`app__project-text-container${
 						this.props.scroll ? " app__project-text-container--scroll" : ""
 					}`}
@@ -56,8 +56,8 @@ class ProjectSummary extends Component {
 					<p className="app__project-text app__project-text--alt">
 						{this.props.projectFact}
 					</p>
-				</article>
-			</section>
+				</aside>
+			</div>
 		);
 	}
 }

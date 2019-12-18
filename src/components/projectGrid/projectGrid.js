@@ -5,14 +5,13 @@ import "./ProjectGrid.scss";
 class projectGrid extends Component {
 	render() {
 		return (
-			<div className="app__project-grid">
+			<section className="app__project-grid">
 				<h2
 					className={`app__grid-prompt${
 						this.props.projectPromptIsAnimated ? " app__grid-prompt--flash" : ""
 					}`}
 				>
 					Select Stage
-					<br />
 					<span className="app__grid-prompt--alt">Press Start</span>
 				</h2>
 				<div className="columns is-centered is-alternate">
@@ -69,7 +68,7 @@ class projectGrid extends Component {
 						/>
 					</div>
 				</div>
-			</div>
+			</section>
 		);
 	}
 }

@@ -4,14 +4,18 @@
 
 .app {
 	&__skipNavLink {
+		font-family: "Ubuntu Mono", "sans-serif";
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: 2px;
+		left: 2px;
 		z-index: -999;
 		opacity: 0;
-		transition: all 0.1s;
-		height: 56px;
-		background-color: red;
+		line-height: 0.5;
+		height: 12px;
+		color: $app-white;
+		text-decoration: none;
+		padding: 1em;
+		background-color: $app-black;
 		&:focus {
 			opacity: 1;
 			z-index: 999;
