@@ -5,7 +5,14 @@ import "./ProjectBlock.scss";
 
 class projectBlock extends Component {
 	render() {
-		const projectName = this.props.projectSlug.replace("-", " ");
+		const projectAltTextOld = this.props
+			.camelCase(this.props.projectSlug)
+			.replace(/-/g, " ");
+		let projectAltTextNew =
+			projectAltTextOld.charAt(0).toUpperCase() + projectAltTextOld.slice(1);
+		if (projectAltTextNew === "Ajc") {
+			projectAltTextNew = "AJC";
+		}
 		const robot = require(`../../images/${this.props.blockImage}.png`);
 		return (
 			<figure>
@@ -15,9 +22,8 @@ class projectBlock extends Component {
 				>
 					<img
 						className="app__project-block"
-						tabIndex="0"
 						src={gridImg}
-						alt={`${projectName}`}
+						alt={`Learn about work done on the ${projectAltTextNew} website.`}
 					/>
 					<div
 						className="app__project-block-image"

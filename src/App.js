@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import posed, { PoseGroup } from "react-pose";
 //Custom components
 import whatInput from "what-input";
+import SkipNavLink from "./components/skipNavLink/SkipNavLink";
 import MetaData from "./components/metaData/MetaData";
 import Header from "./components/header/Header";
 import InfoSection from "./components/infoSection/InfoSection";
@@ -99,6 +100,7 @@ class App extends Component {
 		isMobile: true,
 		promptIsAnimated: false
 	};
+
 	checkIsMobile = () => {
 		if (window.innerWidth > 768) {
 			this.setState({ isMobile: false });
@@ -106,14 +108,23 @@ class App extends Component {
 			this.setState({ isMobile: true });
 		}
 	};
+
 	playSound = sound => {
 		sound.play();
 	};
+
 	animateProjectPrompt = setInterval(() => {
 		this.setState({
 			projectPromptIsAnimated: !this.state.projectPromptIsAnimated
 		});
-	}, 300);
+	}, 500);
+
+	camelCase = str => {
+		return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+			if (+match === 0) return ""; //
+			return index === 0 ? match.toLowerCase() : match.toUpperCase();
+		});
+	};
 
 	componentDidMount() {
 		window.addEventListener("resize", this.checkIsMobile);
@@ -148,86 +159,89 @@ class App extends Component {
 		});
 		return (
 			<React.Fragment>
-				<MetaData />
-				<Header
-					sections={this.state.sections}
-					isMobile={this.state.isMobile}
-				/>{" "}
+				<MetaData camelCase={this.camelCase} />
+				<SkipNavLink />
+				<Header sections={this.state.sections} isMobile={this.state.isMobile} />
 				{/*<PoseGroup>*/}
 				{/*<RouteContainer key={location.pathname}>*/}
 				<Analytics id="UA-133446660-2">
-					<Switch>
-						<Route
-							exact
-							path="/"
-							render={() => (
-								<InfoSection
-									subtitle={`<h2 class='app__info-text app__info-text--subtitle'>I Don't Actually Live Here</h2>`}
-									textContent={`<p class='app__info-text'>This is just the landing page for my online portfolio. Check out the other sections to learn more about me and what I've worked on.</p>`}
-								/>
-							)}
-						/>
-						<Route
-							exact
-							path="/bio"
-							render={() => (
-								<InfoSection
-									subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Who am I?</h2>`}
-									textContent={`<p class='app__info-text'>Just a Mary Hardin-Baylor graduate in computer science. I specialize in frontend web development but have solid backend tech experience as well.</p> <p class='app__info-text'><span class='app__info-text--em'>My frontend tools:</span> HTML, CSS/SCSS, minimalist CSS Frameworks (like Bulma), modern JavaScript (with Babel, Webpack, and all the trimmings), React, Next.js, and occasionally jQuery. I'm also keen on website accessibility (y'know, stuff like semantic markup, WCAG, and 508 compliance.)</p> <p class='app__info-text'><span class='app__info-text--em'>My backend tools:</span> NodeJS (writing scripts/tasks), PHP and Twig. I'm also proficient with CMSs like WordPress and Craft.</p> <p class='app__info-text'><span class='app__info-text--em'>Misc. skills:</span> web hosting, DNS Management, optimization, and basic SEO. I'd be a jack-of-all-trades if my name wasn't 'Josh'.</p> `}
-								/>
-							)}
-						/>
-						<Route
-							exact
-							path="/projects"
-							render={() => (
-								<React.Fragment>
-									<InfoSection
-										subtitle={`<h2 class='app__info-text app__info-text--subtitle'>My Work</h2>`}
-										textContent={`<p class='app__info-text'>Any resemblance this has to a classic videogame is sheer coincidence.</p> `}
-									/>
-									<ProjectGrid
-										projectPromptIsAnimated={this.state.projectPromptIsAnimated}
-									/>
-								</React.Fragment>
-							)}
-						/>{" "}
-						{this.state.subsections.slugs.map((slug, index) => (
+					<main id="main">
+						<Switch>
 							<Route
-								key={`this.state.subsections.slugs-${index}`}
-								path={`/projects/${slug}`}
+								exact
+								path="/"
 								render={() => (
-									<ProjectSummary
-										scroll={slug === "san-pedro-fish-market" ? true : false}
-										projectLink={this.state.subsections.urls[index]}
-										projectFact={this.state.subsections.facts[index]}
-										projectTech={this.state.subsections.tech[index]}
-										projectName={this.state.subsections.names[index]}
-										projectAltText={this.state.subsections.imagesText[index]}
-										projectImage={this.state.subsections.images[index]}
+									<InfoSection
+										subtitle={`<h2 class='app__info-text app__info-text--subtitle'>I Don't Actually Live Here</h2>`}
+										textContent={`<p class='app__info-text'>This is just the landing page for my online portfolio. Check out the other sections to learn more about me and what I've worked on.</p>`}
 									/>
 								)}
 							/>
-						))}
-						<Route
-							exact
-							path="/contact"
-							render={() => (
-								<InfoSection
-									subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Get in Touch</h2>`}
-									textContent={`<p class='app__info-text'><span class='app__info-text--em'>E-mail:</span> <a class='app__info-icon icon-envelop' href='mailto:joshuakirwin@gmail.com' class='icon-envelop'></a></p> <p class='app__info-text'><span class='app__info-text--em'>LinkedIn:</span> <a class='app__info-icon icon-linkedin' href='https://www.linkedin.com/in/joshua-kirwin/' target='_blank'></a></p>`}
+							<Route
+								exact
+								path="/bio"
+								render={() => (
+									<InfoSection
+										subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Who am I?</h2>`}
+										textContent={`<p class='app__info-text'>Just a Mary Hardin-Baylor graduate in computer science. I specialize in frontend web development but have solid backend tech experience as well.</p> <p class='app__info-text'><span class='app__info-text--em'>My frontend tools:</span> HTML, CSS/SCSS, minimalist CSS Frameworks (like Bulma), modern JavaScript (with Babel, Webpack, and all the trimmings), React, Next.js, and occasionally jQuery. I'm also keen on website accessibility (y'know, stuff like semantic markup, WCAG, and 508 compliance.)</p> <p class='app__info-text'><span class='app__info-text--em'>My backend tools:</span> NodeJS (writing scripts/tasks), PHP and Twig. I'm also proficient with CMSs like WordPress, Craft, and Kentico.</p> <p class='app__info-text'><span class='app__info-text--em'>Misc. skills:</span> web hosting, DNS Management, optimization, and basic SEO. I'd be a jack-of-all-trades if my name wasn't 'Josh'.</p> `}
+									/>
+								)}
+							/>
+							<Route
+								exact
+								path="/projects"
+								render={() => (
+									<React.Fragment>
+										<InfoSection
+											subtitle={`<h2 class='app__info-text app__info-text--subtitle'>My Work</h2>`}
+											textContent={`<p class='app__info-text'>Any resemblance this has to a classic videogame is sheer coincidence.</p> `}
+										/>
+										<ProjectGrid
+											camelCase={this.camelCase}
+											projectPromptIsAnimated={
+												this.state.projectPromptIsAnimated
+											}
+										/>
+									</React.Fragment>
+								)}
+							/>{" "}
+							{this.state.subsections.slugs.map((slug, index) => (
+								<Route
+									key={`this.state.subsections.slugs-${index}`}
+									path={`/projects/${slug}`}
+									render={() => (
+										<ProjectSummary
+											scroll={slug === "san-pedro-fish-market" ? true : false}
+											projectLink={this.state.subsections.urls[index]}
+											projectFact={this.state.subsections.facts[index]}
+											projectTech={this.state.subsections.tech[index]}
+											projectName={this.state.subsections.names[index]}
+											projectAltText={this.state.subsections.imagesText[index]}
+											projectImage={this.state.subsections.images[index]}
+										/>
+									)}
 								/>
-							)}
-						/>
-						<Route
-							render={() => (
-								<InfoSection
-									subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Sorry</h2>`}
-									textContent={`<p class='app__info-text'>Page not found. Someone should go look for her.</p>`}
-								/>
-							)}
-						/>
-					</Switch>
+							))}
+							<Route
+								exact
+								path="/contact"
+								render={() => (
+									<InfoSection
+										subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Get in Touch</h2>`}
+										textContent={`<p class='app__info-text'><span class='app__info-text--em'>E-mail:</span> <a class='app__info-icon icon-envelop' href='mailto:joshuakirwin@gmail.com' class='icon-envelop'></a></p> <p class='app__info-text'><span class='app__info-text--em'>LinkedIn:</span> <a class='app__info-icon icon-linkedin' href='https://www.linkedin.com/in/joshua-kirwin/' target='_blank'></a></p>`}
+									/>
+								)}
+							/>
+							<Route
+								render={() => (
+									<InfoSection
+										subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Sorry</h2>`}
+										textContent={`<p class='app__info-text'>Page not found. Someone should go look for her.</p>`}
+									/>
+								)}
+							/>
+						</Switch>
+					</main>
 				</Analytics>
 				{/*</RouteContainer>*/}
 				{/*</PoseGroup>*/}

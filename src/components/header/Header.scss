@@ -94,6 +94,7 @@
 				background-color: lighten($app-black, 100%);
 			}
 		}
+		/*
 		&:after,
 		&:before {
 			content: "";
@@ -112,6 +113,7 @@
 			right: 0;
 			top: 0;
 		}
+		*/
 	}
 
 	&__header-banner,
@@ -121,7 +123,7 @@
 
 	&__header-banner {
 		height: 105px;
-		background-color: $app-aqua;
+		background-color: $app-gray;
 		display: flex;
 		justify-content: center;
 		align-items: center;

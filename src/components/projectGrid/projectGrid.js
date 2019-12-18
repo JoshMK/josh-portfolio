@@ -18,6 +18,7 @@ class projectGrid extends Component {
 				<div className="columns is-centered is-alternate">
 					<div className="column">
 						<ProjectBlock
+							camelCase={this.props.camelCase}
 							projectSlug="jesus-always-existed"
 							captionText="divineman"
 							blockImage="divine-man"
@@ -25,6 +26,7 @@ class projectGrid extends Component {
 					</div>
 					<div className="column">
 						<ProjectBlock
+							camelCase={this.props.camelCase}
 							projectSlug="san-pedro-fish-market"
 							captionText="fishman"
 							blockImage="fish-man"
@@ -34,6 +36,7 @@ class projectGrid extends Component {
 				<div className="columns is-centered">
 					<div className="column">
 						<ProjectBlock
+							camelCase={this.props.camelCase}
 							projectSlug="ajc"
 							captionText="georgiaman"
 							blockImage="georgia-man"
@@ -41,6 +44,7 @@ class projectGrid extends Component {
 					</div>
 					<div className="column">
 						<ProjectBlock
+							camelCase={this.props.camelCase}
 							projectSlug="access-atlanta"
 							captionText="eventman"
 							blockImage="event-man"
@@ -50,6 +54,7 @@ class projectGrid extends Component {
 				<div className="columns is-centered is-alternate">
 					<div className="column">
 						<ProjectBlock
+							camelCase={this.props.camelCase}
 							projectSlug="rare"
 							captionText="newsman"
 							blockImage="news-man"
@@ -57,6 +62,7 @@ class projectGrid extends Component {
 					</div>
 					<div className="column">
 						<ProjectBlock
+							camelCase={this.props.camelCase}
 							projectSlug="austin-smiles"
 							captionText="molarman"
 							blockImage="molar-man"

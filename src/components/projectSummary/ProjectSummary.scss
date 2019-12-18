@@ -14,9 +14,7 @@
 			margin: 64px auto 48px;
 		}
 	}
-	&__project-nav,
-	&__project-title,
-	&__project-seperator {
+	&__project-title {
 		font-size: 1.5em;
 		font-weight: bold;
 		font-family: "Ubuntu Mono", "sans-serif";
@@ -29,7 +27,6 @@
 		transition: color 0.3s;
 	}
 	&__project-nav {
-		margin-right: 4px;
 		&:hover {
 			color: $app-dark-blue;
 		}
@@ -100,10 +97,12 @@
 		display: inline-block;
 		text-align: center;
 		color: $app-white;
-		margin-left: 4px;
+		margin-left: 8px;
+		margin-right: 8px;
 		@include from($desktop) {
 			text-align: left;
-			display: inline-block;
+			margin-left: 0;
+			margin-right: 0;
 		}
 	}
 	&__project-image {
@@ -115,22 +114,6 @@
 		@include from($desktop) {
 			height: 480px;
 			width: 560px;
-		}
-	}
-}
-
-@media screen and (max-width: 420px) {
-	.app {
-		&__project-nav,
-		&__project-title {
-			display: inline-block;
-			margin-top: 24px;
-		}
-		&__project-title {
-			text-align: left;
-			margin-top: 8px;
-			margin-left: 0;
-			display: block;
 		}
 	}
 }

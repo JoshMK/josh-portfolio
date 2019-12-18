@@ -3,12 +3,6 @@ import { withRouter } from "react-router-dom";
 import { Helmet } from "react-helmet";
 
 class MetaData extends Component {
-	camelCase = str => {
-		return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
-			if (+match === 0) return ""; //
-			return index === 0 ? match.toLowerCase() : match.toUpperCase();
-		});
-	};
 	updateDescription = path => {
 		if (path.indexOf("/projects/") !== -1) {
 			return "A particular pizzazy project Josh has pontificated over.";
@@ -33,7 +27,8 @@ class MetaData extends Component {
 
 	render() {
 		const sectionTitle = this.props.location.pathname;
-		let camelCaseTitle = this.camelCase(sectionTitle)
+		let camelCaseTitle = this.props
+			.camelCase(sectionTitle)
 			.replace(/-/g, " ")
 			.replace("/", "")
 			.replace("/", " | ");
