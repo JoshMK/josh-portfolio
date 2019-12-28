@@ -3,173 +3,180 @@
 @import "~bulma/sass/utilities/mixins";
 
 .app {
-    &__header {
-        height: 48px;
-    }
-
-    &__header-button-container {
-        padding-top: 2px;
-        display: flex;
-        justify-content: space-around;
-        @include from ($tablet) {
-            display: none;
-        }
-    }
-
-    &__header-button-link {
-        position: relative;
-    }
-
-    &__header-sections {
-        width: 160px;
-        height: 48px;
-        overflow: hidden;
-        display: none;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        margin: 0 auto;
-        padding: 0;
-        transition: width 0.2s;
-        @include from($tablet) {
-            display: flex;
-            width: 100%;
-            margin: 0;
-            flex-direction: row;
-            height: auto;
-        }
+	&__header {
+		height: 48px;
 	}
-	
-	&__header-button-image {
-		border: 2px solid $app-white;
-		border-radius: 50%;
-		transition: all .1s;
-		&:hover, &:focus {
-			transform: scale(1.75);	
+
+	&__header-button-container {
+		padding-top: 2px;
+		display: flex;
+		justify-content: space-around;
+		@include from($tablet) {
+			display: none;
 		}
 	}
 
-    &__header-button-icon {
-        color: $app-white;
-        text-decoration: none;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
+	&__header-button-link {
+		position: relative;
+	}
 
-    &__header-section {
-        list-style: none;
-        width: 160px;
-        font-family: 'Ubuntu Mono', 'sans-serif';
-        font-size: 1.5em;
-        color: $app-white;
-        background-color: $app-black;
-        line-height: 2;
-        padding: 0;
-        height: 48px;
-        background-image: url('../../images/header-sections-center.png');
-        cursor: pointer;
-        position: relative;
-        z-index: 2;
-        top: 72px;
-        @include from($tablet) {
-            top: 0;
-        }
+	&__header-sections {
+		width: 160px;
+		height: 48px;
+		overflow: hidden;
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		margin: 0 auto;
+		padding: 0;
+		transition: width 0.2s;
+		@include from($tablet) {
+			display: flex;
+			width: 100%;
+			margin: 0;
+			flex-direction: row;
+			height: auto;
+		}
+	}
 
-        a {
-            color: $app-white;
-            text-decoration: none;
-            width: 100%;
-            height: 100%;
-            display: block;
-            transition: all 0.25s ease-in;
-            position: relative;
-            z-index: 1;
-            &:hover {
-                color: darken($app-black, 100%);
-                background-color: lighten($app-black, 100%);
-            }
-        }
-        &:after,
-        &:before {
-            content: '';
-            display: block;
-            width: 32px;
-            height: 48px;
-            position: absolute;
-        }
-        &:after {
-            left: 0;
-            top: 0;
-            background-image: url('../../images/header-sections-left.png');
-        }
-        &:before {
-            background-image: url('../../images/header-sections-right.png');
-            right: 0;
-            top: 0;
-        }
-    }
+	&__header-button-image {
+		border: 2px solid $app-white;
+		border-radius: 50%;
+		transition: all 0.1s;
+		&:hover,
+		&:focus {
+			transform: scale(1.75);
+		}
+	}
 
-    &__header-banner,
-    &__header-section {
-        text-transform: uppercase;
-    }
+	&__header-button-icon {
+		color: $app-white;
+		text-decoration: none;
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 
-    &__header-banner {
-        height: 105px;
-        background-color: $app-aqua;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        //transition: height 0.1s;
-        //box-shadow: 0 -16px 16px 2px $app-header-border;
-        @include from($tablet) {
-            height: 210px;
-        }
-    }
+	&__header-section {
+		list-style: none;
+		width: 160px;
+		font-family: "Ubuntu Mono", "sans-serif";
+		font-size: 1.5em;
+		color: $app-white;
+		background-color: $app-black;
+		line-height: 2;
+		padding: 0;
+		height: 48px;
+		background-image: url("../../images/header-sections-center.png");
+		cursor: pointer;
+		position: relative;
+		z-index: 2;
+		top: 72px;
+		@include from($tablet) {
+			top: 0;
+		}
 
-    &__header-title {
-        font-family: 'Press Start 2P', 'sans-serif';
-        color: $app-white;
-        margin: 0;
-        font-size: 2em;
-        letter-spacing: 0.125em;
-        text-shadow: 1px -1px 0 $app-black, 1px 1px 0 $app-black, -1px 1px 0 $app-black, -1px -1px 0 $app-black, 2px -2px 0 $app-black, 2px 2px 0 $app-black, -2px 2px 0 $app-black, -2px -2px 0 $app-black, 3px -3px 0 $app-black, 3px 3px 0 $app-black, -3px 3px 0 $app-black, -3px -3px 0 $app-black;
-        @include from ($tablet) {
-            font-size: 3em;
-        }
-    }
+		a {
+			outline-offset: -2px;
+			color: $app-white;
+			text-decoration: none;
+			width: 100%;
+			height: 100%;
+			display: block;
+			transition: color, background-color 0.25s ease-in;
+			position: relative;
+			z-index: 1;
+			&:hover {
+				color: darken($app-black, 100%);
+				background-color: lighten($app-black, 100%);
+			}
+		}
+		/*
+		&:after,
+		&:before {
+			content: "";
+			display: block;
+			width: 32px;
+			height: 48px;
+			position: absolute;
+		}
+		&:after {
+			left: 0;
+			top: 0;
+			background-image: url("../../images/header-sections-left.png");
+		}
+		&:before {
+			background-image: url("../../images/header-sections-right.png");
+			right: 0;
+			top: 0;
+		}
+		*/
+	}
 
-    &__header-letter {
-        display: inline-block;
+	&__header-banner,
+	&__header-section {
+		text-transform: uppercase;
+	}
 
-        &--anim-a {
-            animation: lettermove-b 0.4s steps(4, end) infinite alternate;
-        }
+	&__header-banner {
+		height: 105px;
+		background-color: $app-gray;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		//transition: height 0.1s;
+		//box-shadow: 0 -16px 16px 2px $app-header-border;
+		@include from($tablet) {
+			height: 210px;
+		}
+	}
 
-        &--anim-b {
-            animation: lettermove-b 0.45s steps(5, end) infinite alternate;
-        }
-    }
-    @keyframes lettermove-a {
-        from {
-            transform: translateY(0px) rotate(0deg);
-        }
+	&__header-title {
+		font-family: "Press Start 2P", "sans-serif";
+		color: $app-white;
+		margin: 0;
+		font-size: 2em;
+		letter-spacing: 0.125em;
+		text-shadow: 1px -1px 0 $app-black, 1px 1px 0 $app-black,
+			-1px 1px 0 $app-black, -1px -1px 0 $app-black, 2px -2px 0 $app-black,
+			2px 2px 0 $app-black, -2px 2px 0 $app-black, -2px -2px 0 $app-black,
+			3px -3px 0 $app-black, 3px 3px 0 $app-black, -3px 3px 0 $app-black,
+			-3px -3px 0 $app-black;
+		@include from($tablet) {
+			font-size: 3em;
+		}
+	}
 
-        to {
-            transform: translateY(4px) rotate(0deg);
-        }
-    }
-    @keyframes lettermove-b {
-        from {
-            transform: translateY(0px) rotate(0deg);
-        }
+	&__header-letter {
+		display: inline-block;
 
-        to {
-            transform: translateY(4px) rotate(0deg);
-        }
-    }
+		&--anim-a {
+			animation: lettermove-b 0.4s steps(4, end) infinite alternate;
+		}
 
+		&--anim-b {
+			animation: lettermove-b 0.45s steps(5, end) infinite alternate;
+		}
+	}
+	@keyframes lettermove-a {
+		from {
+			transform: translateY(0px) rotate(0deg);
+		}
+
+		to {
+			transform: translateY(4px) rotate(0deg);
+		}
+	}
+	@keyframes lettermove-b {
+		from {
+			transform: translateY(0px) rotate(0deg);
+		}
+
+		to {
+			transform: translateY(4px) rotate(0deg);
+		}
+	}
 }

@@ -3,37 +3,37 @@
 @import "~bulma/sass/utilities/mixins";
 
 .app {
-        &__project-grid {
-            position: relative;
-            padding-bottom: 16px;
-            @include from ($tablet) {
-                padding-bottom: 0;
-                margin-bottom: 24px;
-            }
-        }
-        &__grid-prompt {
-            margin: 24px 32px;
-            color: $app-white;
-            font-family: 'Press Start 2p', 'sans-serif';
-            font-size: 1em;
-            text-transform: uppercase;
-            line-height: 1.1;
-            text-align: center;
-            &--flash {
-                color: $app-prompt-alt;
-            }
-            @include from ($tablet) {
-                margin: 0;
-                text-align: left;
-                width: 96px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
-        &__grid-prompt--alt {
-            display: block;
-            margin-top: 16px;
-        }
+	&__project-grid {
+		position: relative;
+		padding-bottom: 16px;
+		@include from($tablet) {
+			padding-bottom: 0;
+			margin-bottom: 24px;
+		}
+	}
+	&__grid-prompt {
+		margin: 24px 32px;
+		color: $app-white;
+		font-family: "Press Start 2p", "sans-serif";
+		font-size: 1em;
+		text-transform: uppercase;
+		line-height: 1.1;
+		text-align: center;
+		&--flash {
+			color: $app-prompt-alt;
+		}
+		@include from($tablet) {
+			margin: 0;
+			text-align: left;
+			width: 96px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+	&__grid-prompt--alt {
+		display: block;
+		margin-top: 16px;
+	}
 }

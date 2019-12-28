@@ -3,53 +3,53 @@
 @import "~bulma/sass/utilities/mixins";
 
 .app {
-    &__project-block {
-        margin: 0 auto;
-        display: block;
-    }
-    &__project-link {
-        z-index: 2;
-        position: relative;
-        text-decoration: none;
-        width: 128px;
-        height: 128px;
-        display: block;
-        margin: 0 auto;
-        &:hover {
-            opacity: 0.7;
-        }
-    }
-    &__project-block-image {
-        z-index: 1;
-        width: 32px;
-        height: 32px;
-        display: block;
-        bottom: 23px;
-        position: absolute;
-        left: calc(50% - 16px);
-        transform: scale(2.0);
-        transition: all 0.3s;
-        animation-duration: 0.25s;
-        animation-iteration-count: infinite;
-        animation-direction: alternate-reverse;
-        &:hover {
-            animation-name: dance;
-        }
-    }
-    &__project-name {
-        margin: 16px 0;
-        color: $app-white;
-        text-transform: uppercase;
-        text-align: center;
-        font-family: 'Press Start 2P', 'sans-serif';
-    }
-    @keyframes dance {
-        from {
-            transform: scale(2.0) rotate(3deg);
-        }
+	&__project-block {
+		margin: 0 auto;
+		display: block;
+	}
+	&__project-link {
+		z-index: 2;
+		position: relative;
+		text-decoration: none;
+		width: 128px;
+		height: 128px;
+		display: block;
+		margin: 0 auto;
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	&__project-block-image {
+		z-index: 1;
+		width: 32px;
+		height: 32px;
+		display: block;
+		bottom: 23px;
+		position: absolute;
+		left: calc(50% - 16px);
+		transform: scale(2);
+		transition: all 0.3s;
+		animation-duration: 0.25s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate-reverse;
+		&:hover {
+			animation-name: dance;
+		}
+	}
+	&__project-name {
+		margin: 16px 0;
+		color: $app-white;
+		text-transform: uppercase;
+		text-align: center;
+		font-family: "Press Start 2P", "sans-serif";
+	}
+	@keyframes dance {
+		from {
+			transform: scale(2) rotate(3deg);
+		}
 
-        to {
-            transform: scale(2.0) rotate(-3deg);
-        }
-    }
+		to {
+			transform: scale(2) rotate(-3deg);
+		}
+	}
 }
