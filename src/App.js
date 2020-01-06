@@ -11,7 +11,7 @@ import InfoSection from "./components/infoSection/InfoSection";
 import ProjectGrid from "./components/projectGrid/ProjectGrid";
 import ProjectSummary from "./components/projectSummary/ProjectSummary";
 import Footer from "./components/footer/Footer";
-//audio import laughTrack from './audio/RDLG-2.mp3'; global styles
+//global styles
 import "./App.scss";
 import { hidden } from "ansi-colors";
 //google analytics
@@ -109,10 +109,6 @@ class App extends Component {
 		}
 	};
 
-	playSound = sound => {
-		sound.play();
-	};
-
 	animateProjectPrompt = setInterval(() => {
 		this.setState({
 			projectPromptIsAnimated: !this.state.projectPromptIsAnimated
@@ -138,11 +134,6 @@ class App extends Component {
 	}
 
 	render() {
-		// <p class='app__info-text'><span class='app__info-text--em'>Carrier Pigeon:
-		// </span> <a class='app__info-icon icon-bird' href=''></a></p> let laughSound =
-		// new Audio(laughTrack); this.playSound(laughSound); <span class='icon-music'
-		// onClick=${() => this.playSound(laughSound)}></span>
-		//
 		const RouteContainer = posed.div({
 			enter: {
 				scaleY: 1,
