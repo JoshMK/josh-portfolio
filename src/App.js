@@ -1,7 +1,6 @@
 //React components
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import posed, { PoseGroup } from "react-pose";
 //Custom components
 import whatInput from "what-input";
 import SkipNavLink from "./components/skipNavLink/SkipNavLink";
@@ -13,7 +12,6 @@ import ProjectSummary from "./components/projectSummary/ProjectSummary";
 import Footer from "./components/footer/Footer";
 //global styles
 import "./App.scss";
-import { hidden } from "ansi-colors";
 //google analytics
 import Analytics from "react-router-ga";
 
@@ -134,31 +132,16 @@ class App extends Component {
 	}
 
 	render() {
-		const RouteContainer = posed.div({
-			enter: {
-				scaleY: 1,
-				delay: 5000,
-				overflow: hidden,
-				transformOrigin: "top center",
-				beforeChildren: true
-			},
-			exit: {
-				overflow: hidden,
-				transformOrigin: "bottom center",
-				scaleY: 0
-			}
-		});
 		return (
 			<React.Fragment>
 				<MetaData camelCase={this.camelCase} />
 				<SkipNavLink />
 				<Header sections={this.state.sections} isMobile={this.state.isMobile} />
-				{/*<PoseGroup>*/}
-				{/*<RouteContainer key={location.pathname}>*/}
 				<Analytics id="UA-133446660-2">
-					<main id="main">
+					<main id="main" tabindex="-1">
 						<Switch>
 							<Route
+								key="home"
 								exact
 								path="/"
 								render={() => (
@@ -169,6 +152,7 @@ class App extends Component {
 								)}
 							/>
 							<Route
+								key="bio"
 								exact
 								path="/bio"
 								render={() => (
@@ -179,6 +163,7 @@ class App extends Component {
 								)}
 							/>
 							<Route
+								key="projects"
 								exact
 								path="/projects"
 								render={() => (
@@ -198,7 +183,7 @@ class App extends Component {
 							/>{" "}
 							{this.state.subsections.slugs.map((slug, index) => (
 								<Route
-									key={`this.state.subsections.slugs-${index}`}
+									key={`projects-${index}`}
 									path={`/projects/${slug}`}
 									render={() => (
 										<ProjectSummary
@@ -214,6 +199,7 @@ class App extends Component {
 								/>
 							))}
 							<Route
+								key="contact"
 								exact
 								path="/contact"
 								render={() => (
@@ -224,6 +210,7 @@ class App extends Component {
 								)}
 							/>
 							<Route
+								key="404"
 								render={() => (
 									<InfoSection
 										subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Sorry</h2>`}
@@ -234,8 +221,6 @@ class App extends Component {
 						</Switch>
 					</main>
 				</Analytics>
-				{/*</RouteContainer>*/}
-				{/*</PoseGroup>*/}
 				<Footer />
 			</React.Fragment>
 		);
