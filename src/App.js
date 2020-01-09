@@ -132,6 +132,7 @@ class App extends Component {
 	}
 
 	render() {
+		const subs = this.state.subsections;
 		return (
 			<React.Fragment>
 				<MetaData camelCase={this.camelCase} />
@@ -181,19 +182,19 @@ class App extends Component {
 									</React.Fragment>
 								)}
 							/>{" "}
-							{this.state.subsections.slugs.map((slug, index) => (
+							{subs.slugs.map((slug, index) => (
 								<Route
 									key={`projects-${index}`}
 									path={`/projects/${slug}`}
 									render={() => (
 										<ProjectSummary
 											scroll={slug === "san-pedro-fish-market" ? true : false}
-											projectLink={this.state.subsections.urls[index]}
-											projectFact={this.state.subsections.facts[index]}
-											projectTech={this.state.subsections.tech[index]}
-											projectName={this.state.subsections.names[index]}
-											projectAltText={this.state.subsections.imagesText[index]}
-											projectImage={this.state.subsections.images[index]}
+											projectLink={subs.urls[index]}
+											projectFact={subs.facts[index]}
+											projectTech={subs.tech[index]}
+											projectName={subs.names[index]}
+											projectAltText={subs.imagesText[index]}
+											projectImage={subs.images[index]}
 										/>
 									)}
 								/>
