@@ -1,7 +1,6 @@
 //React components
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
-import posed, { PoseGroup } from "react-pose";
 //Custom components
 import whatInput from "what-input";
 import SkipNavLink from "./components/skipNavLink/SkipNavLink";
@@ -11,9 +10,8 @@ import InfoSection from "./components/infoSection/InfoSection";
 import ProjectGrid from "./components/projectGrid/ProjectGrid";
 import ProjectSummary from "./components/projectSummary/ProjectSummary";
 import Footer from "./components/footer/Footer";
-//audio import laughTrack from './audio/RDLG-2.mp3'; global styles
+//global styles
 import "./App.scss";
-import { hidden } from "ansi-colors";
 //google analytics
 import Analytics from "react-router-ga";
 
@@ -109,15 +107,11 @@ class App extends Component {
 		}
 	};
 
-	playSound = sound => {
-		sound.play();
-	};
-
 	animateProjectPrompt = setInterval(() => {
 		this.setState({
 			projectPromptIsAnimated: !this.state.projectPromptIsAnimated
 		});
-	}, 500);
+	}, 1000);
 
 	camelCase = str => {
 		return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
@@ -138,36 +132,17 @@ class App extends Component {
 	}
 
 	render() {
-		// <p class='app__info-text'><span class='app__info-text--em'>Carrier Pigeon:
-		// </span> <a class='app__info-icon icon-bird' href=''></a></p> let laughSound =
-		// new Audio(laughTrack); this.playSound(laughSound); <span class='icon-music'
-		// onClick=${() => this.playSound(laughSound)}></span>
-		//
-		const RouteContainer = posed.div({
-			enter: {
-				scaleY: 1,
-				delay: 5000,
-				overflow: hidden,
-				transformOrigin: "top center",
-				beforeChildren: true
-			},
-			exit: {
-				overflow: hidden,
-				transformOrigin: "bottom center",
-				scaleY: 0
-			}
-		});
+		const subs = this.state.subsections;
 		return (
 			<React.Fragment>
 				<MetaData camelCase={this.camelCase} />
 				<SkipNavLink />
 				<Header sections={this.state.sections} isMobile={this.state.isMobile} />
-				{/*<PoseGroup>*/}
-				{/*<RouteContainer key={location.pathname}>*/}
 				<Analytics id="UA-133446660-2">
-					<main id="main">
+					<main id="main" tabindex="-1">
 						<Switch>
 							<Route
+								key="home"
 								exact
 								path="/"
 								render={() => (
@@ -178,6 +153,7 @@ class App extends Component {
 								)}
 							/>
 							<Route
+								key="bio"
 								exact
 								path="/bio"
 								render={() => (
@@ -188,6 +164,7 @@ class App extends Component {
 								)}
 							/>
 							<Route
+								key="projects"
 								exact
 								path="/projects"
 								render={() => (
@@ -205,24 +182,25 @@ class App extends Component {
 									</React.Fragment>
 								)}
 							/>{" "}
-							{this.state.subsections.slugs.map((slug, index) => (
+							{subs.slugs.map((slug, index) => (
 								<Route
-									key={`this.state.subsections.slugs-${index}`}
+									key={`projects-${index}`}
 									path={`/projects/${slug}`}
 									render={() => (
 										<ProjectSummary
 											scroll={slug === "san-pedro-fish-market" ? true : false}
-											projectLink={this.state.subsections.urls[index]}
-											projectFact={this.state.subsections.facts[index]}
-											projectTech={this.state.subsections.tech[index]}
-											projectName={this.state.subsections.names[index]}
-											projectAltText={this.state.subsections.imagesText[index]}
-											projectImage={this.state.subsections.images[index]}
+											projectLink={subs.urls[index]}
+											projectFact={subs.facts[index]}
+											projectTech={subs.tech[index]}
+											projectName={subs.names[index]}
+											projectAltText={subs.imagesText[index]}
+											projectImage={subs.images[index]}
 										/>
 									)}
 								/>
 							))}
 							<Route
+								key="contact"
 								exact
 								path="/contact"
 								render={() => (
@@ -233,6 +211,7 @@ class App extends Component {
 								)}
 							/>
 							<Route
+								key="404"
 								render={() => (
 									<InfoSection
 										subtitle={`<h2 class='app__info-text app__info-text--subtitle'>Sorry</h2>`}
@@ -243,8 +222,6 @@ class App extends Component {
 						</Switch>
 					</main>
 				</Analytics>
-				{/*</RouteContainer>*/}
-				{/*</PoseGroup>*/}
 				<Footer />
 			</React.Fragment>
 		);
