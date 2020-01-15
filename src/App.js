@@ -111,7 +111,7 @@ class App extends Component {
 		this.setState({
 			projectPromptIsAnimated: !this.state.projectPromptIsAnimated
 		});
-	}, 500);
+	}, 1000);
 
 	camelCase = str => {
 		return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
